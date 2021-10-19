@@ -20,6 +20,8 @@
 		CB931B542718D7D50014FDE3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CB931B532718D7D50014FDE3 /* FirebaseAuth */; };
 		CB931B562718D7D50014FDE3 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CB931B552718D7D50014FDE3 /* FirebaseFirestoreSwift-Beta */; };
 		CB931B582718D9CF0014FDE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB931B572718D9CF0014FDE3 /* GoogleService-Info.plist */; };
+		CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5729C271F47BA00EF0E77 /* DatabaseManager.swift */; };
+		CBB5729F271F4A9E00EF0E77 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5729E271F4A9E00EF0E77 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		CB931B412718D5200014FDE3 /* classattendanceprojectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classattendanceprojectUITests.swift; sourceTree = "<group>"; };
 		CB931B432718D5200014FDE3 /* classattendanceprojectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classattendanceprojectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CB931B572718D9CF0014FDE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CBB5729C271F47BA00EF0E77 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		CBB5729E271F4A9E00EF0E77 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		CB931B1F2718D51C0014FDE3 /* classattendanceproject */ = {
 			isa = PBXGroup;
 			children = (
+				CBB5729C271F47BA00EF0E77 /* DatabaseManager.swift */,
+				CBB5729E271F4A9E00EF0E77 /* Model.swift */,
 				CB931B202718D51C0014FDE3 /* AppDelegate.swift */,
 				CB931B222718D51C0014FDE3 /* SceneDelegate.swift */,
 				CB931B242718D51C0014FDE3 /* ViewController.swift */,
@@ -276,8 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
 				CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */,
+				CBB5729F271F4A9E00EF0E77 /* Model.swift in Sources */,
 				CB931B232718D51C0014FDE3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
