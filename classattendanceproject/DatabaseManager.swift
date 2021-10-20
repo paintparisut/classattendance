@@ -10,8 +10,8 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class DatabaseManager {
-    let db = Firestore.firestore()
-    let auth = Auth.auth()
+    private let db = Firestore.firestore()
+    private let auth = Auth.auth()
     static let shared = DatabaseManager()
     
     public func register(name:String,email:String,password:String,usernumber:String,type:String,completion:@escaping(Result<UserModel,Error>) -> Void) {
@@ -45,11 +45,8 @@ class DatabaseManager {
                         response.usernumber = usernumber
                         completion(.success(response))
                     }
-                    
                 }
-                
             }
-            
         }
     }
 }

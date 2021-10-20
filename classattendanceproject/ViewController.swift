@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
+        self.view.backgroundColor = Constants.GraphicColors.COSCI_BLUEPMR_COLOR
         super.viewDidLoad()
         print("Hello eiei")
         // Do any additional setup after loading the view.
@@ -19,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfemail: UITextField!
     @IBOutlet weak var tfpassword: UITextField!
     @IBOutlet weak var tfconfirmpass: UITextField!
-    
     @IBOutlet weak var tfstudentnum: UITextField!
     
     @IBAction func onTapRegister(_ sender: Any) {
@@ -30,11 +30,9 @@ class ViewController: UIViewController {
                     print("USER",user)
                 case .failure(let error):
                     print("ERROR",error) //.localizedDescription
-
                 }
             }
         }
     }
-    
 }
 
