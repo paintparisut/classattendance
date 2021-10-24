@@ -8,24 +8,13 @@
 import UIKit
 import Firebase
 class LoginPage: UIViewController {
-
-    @IBOutlet weak var userName: UITextField!
-    @IBOutlet weak var password: UITextField!
-    
-    
-    @IBAction func loginButton(_ sender: Any) {
-
-    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
 
+  
     /*
     // MARK: - Navigation
 
@@ -35,5 +24,4 @@ class LoginPage: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
