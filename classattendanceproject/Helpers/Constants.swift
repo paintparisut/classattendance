@@ -17,6 +17,11 @@ struct Constants {
         
         static let COSCI_BLUEPMR_COLOR_UI = UIColor(red: 35/255, green: 85/255, blue:138/255, alpha: 1)
     }
+    
+    struct Storyboard {
+        
+        static let homeViewController = "HomeVC"
+        
+    }
 }
-
 

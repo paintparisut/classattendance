@@ -13,4 +13,5 @@ struct UserModel:Codable {
     var email:String?
     var usernumber:String?
     var usertype:String?
+    var password:String?
 }

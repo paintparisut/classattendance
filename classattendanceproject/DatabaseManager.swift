@@ -30,7 +30,8 @@ class DatabaseManager {
                     "user_name": name,
                     "user_number": usernumber,
                     "user_email": email,
-                    "user_type": type
+                    "user_type": type,
+                    "user_password" : password
                 ]){ err in
                     if let err = err {
                         print("Error writing document: \(err)")
@@ -43,6 +44,7 @@ class DatabaseManager {
                         response.email = email
                         response.name = name
                         response.usernumber = usernumber
+                        response.password = password
                         completion(.success(response))
                     }
                 }
