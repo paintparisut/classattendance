@@ -7,23 +7,34 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDelegate  {
+    
+//    @IBOutlet weak var headerlable: UILabel!
+    
+    @IBOutlet weak var headerlable: UILabel!
+    
+    var subjectname:[String] = ["Object Oriented Programming","Database Management System","Consumer Behavior","Active Citizens"]
+    var subjectid:[String] = ["CSC261","CSC251","COS302","SWU261"]
+    var subjecttime:[String] = ["9:00-11.30","9:00-11:30","9:00-11:30","9:00-11:30"]
+    var stdcount:[String] = ["45","45","45","45"]
+    var checkstats:[String] = ["0","1","0","2"]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjectname.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "subjectcard", for: indexPath) as! SubjectCardCell
+        cell.subject(id: subjectid[indexPath.row], name: subjectname[indexPath.row], time: subjecttime[indexPath.row], stdcount: stdcount[indexPath.row], checkstat: checkstats[indexPath.row])
+        
+        return cell
     }
-    */
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 28)
+        headerlable.textColor = UIColor.white
+//        headerlable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 28)
+//        headerlable.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)
+    }
 }

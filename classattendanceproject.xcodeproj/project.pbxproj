@@ -9,6 +9,41 @@
 /* Begin PBXBuildFile section */
 		2D5EC394271FFF3D005F97BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EC393271FFF3C005F97BC /* Constants.swift */; };
 		2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8757CF2725CC5B008549BE /* CustomTextField.swift */; };
+		2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D948FC42731E139001EB8A0 /* EnterSite.swift */; };
+		2D948FC72731E174001EB8A0 /* ChooseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D948FC62731E174001EB8A0 /* ChooseType.swift */; };
+		2DA1EBC22736101100700D8B /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */; };
+		2DA1EBC32736101100700D8B /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */; };
+		2DA1EBC42736101100700D8B /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */; };
+		2DA1EBC52736101100700D8B /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAF2736101000700D8B /* Kanit-Regular.ttf */; };
+		2DA1EBC62736101100700D8B /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAF2736101000700D8B /* Kanit-Regular.ttf */; };
+		2DA1EBC72736101100700D8B /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAF2736101000700D8B /* Kanit-Regular.ttf */; };
+		2DA1EBC82736101100700D8B /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB02736101000700D8B /* Kanit-Light.ttf */; };
+		2DA1EBC92736101100700D8B /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB02736101000700D8B /* Kanit-Light.ttf */; };
+		2DA1EBCA2736101100700D8B /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB02736101000700D8B /* Kanit-Light.ttf */; };
+		2DA1EBCB2736101100700D8B /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB12736101000700D8B /* Kanit-Bold.ttf */; };
+		2DA1EBCC2736101100700D8B /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB12736101000700D8B /* Kanit-Bold.ttf */; };
+		2DA1EBCD2736101100700D8B /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB12736101000700D8B /* Kanit-Bold.ttf */; };
+		2DA1EBD12736101100700D8B /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB32736101000700D8B /* Kanit-ExtraLight.ttf */; };
+		2DA1EBD22736101100700D8B /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB32736101000700D8B /* Kanit-ExtraLight.ttf */; };
+		2DA1EBD32736101100700D8B /* Kanit-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB32736101000700D8B /* Kanit-ExtraLight.ttf */; };
+		2DA1EBD72736101100700D8B /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB52736101100700D8B /* Kanit-Medium.ttf */; };
+		2DA1EBD82736101100700D8B /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB52736101100700D8B /* Kanit-Medium.ttf */; };
+		2DA1EBD92736101100700D8B /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB52736101100700D8B /* Kanit-Medium.ttf */; };
+		2DA1EBE32736101100700D8B /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */; };
+		2DA1EBE42736101100700D8B /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */; };
+		2DA1EBE52736101100700D8B /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */; };
+		2DA1EBE62736101100700D8B /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */; };
+		2DA1EBE72736101100700D8B /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */; };
+		2DA1EBE82736101100700D8B /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */; };
+		2DA1EBE92736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
+		2DA1EBEA2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
+		2DA1EBEB2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
+		2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
+		2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
+		2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
+		2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
+		2DA1EBFB2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
+		2DA1EBFC2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
 		CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB184F662721DE1C007FFF8D /* LoginPage.swift */; };
 		CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82AB2E273012150066DD16 /* HomeViewController.swift */; };
 		CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB931B202718D51C0014FDE3 /* AppDelegate.swift */; };
@@ -48,6 +83,19 @@
 /* Begin PBXFileReference section */
 		2D5EC393271FFF3C005F97BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2D8757CF2725CC5B008549BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2D948FC42731E139001EB8A0 /* EnterSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterSite.swift; sourceTree = "<group>"; };
+		2D948FC62731E174001EB8A0 /* ChooseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseType.swift; sourceTree = "<group>"; };
+		2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
+		2DA1EBAF2736101000700D8B /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
+		2DA1EBB02736101000700D8B /* Kanit-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Light.ttf"; sourceTree = "<group>"; };
+		2DA1EBB12736101000700D8B /* Kanit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Bold.ttf"; sourceTree = "<group>"; };
+		2DA1EBB32736101000700D8B /* Kanit-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraLight.ttf"; sourceTree = "<group>"; };
+		2DA1EBB52736101100700D8B /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
+		2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Thin.ttf"; sourceTree = "<group>"; };
+		2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Black.ttf"; sourceTree = "<group>"; };
+		2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLecturer.swift; sourceTree = "<group>"; };
+		2DA1EBF92736707800700D8B /* SubjectCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardCell.swift; sourceTree = "<group>"; };
 		CB184F662721DE1C007FFF8D /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		CB82AB2E273012150066DD16 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CB931B1D2718D51C0014FDE3 /* classattendanceproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = classattendanceproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +144,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DA1EBAC27360FAF00700D8B /* CustomFont */ = {
+			isa = PBXGroup;
+			children = (
+				2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */,
+				2DA1EBB12736101000700D8B /* Kanit-Bold.ttf */,
+				2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */,
+				2DA1EBB32736101000700D8B /* Kanit-ExtraLight.ttf */,
+				2DA1EBB02736101000700D8B /* Kanit-Light.ttf */,
+				2DA1EBB52736101100700D8B /* Kanit-Medium.ttf */,
+				2DA1EBAF2736101000700D8B /* Kanit-Regular.ttf */,
+				2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */,
+				2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */,
+			);
+			path = CustomFont;
+			sourceTree = "<group>";
+		};
 		CB82AB30273013930066DD16 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +173,7 @@
 		CB931B142718D51C0014FDE3 = {
 			isa = PBXGroup;
 			children = (
+				2DA1EBAC27360FAF00700D8B /* CustomFont */,
 				CB931B1F2718D51C0014FDE3 /* classattendanceproject */,
 				CB931B362718D5200014FDE3 /* classattendanceprojectTests */,
 				CB931B402718D5200014FDE3 /* classattendanceprojectUITests */,
@@ -134,8 +199,12 @@
 				CB931B222718D51C0014FDE3 /* SceneDelegate.swift */,
 				CB82AB30273013930066DD16 /* Helpers */,
 				CB931B242718D51C0014FDE3 /* ViewController.swift */,
+				2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */,
 				CB184F662721DE1C007FFF8D /* LoginPage.swift */,
 				CB82AB2E273012150066DD16 /* HomeViewController.swift */,
+				2DA1EBF92736707800700D8B /* SubjectCardCell.swift */,
+				2D948FC42731E139001EB8A0 /* EnterSite.swift */,
+				2D948FC62731E174001EB8A0 /* ChooseType.swift */,
 				CB931B262718D51C0014FDE3 /* Main.storyboard */,
 				CB931B292718D5200014FDE3 /* Assets.xcassets */,
 				CB931B2B2718D5200014FDE3 /* LaunchScreen.storyboard */,
@@ -274,10 +343,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA1EBE62736101100700D8B /* Kanit-ExtraBold.ttf in Resources */,
+				2DA1EBCB2736101100700D8B /* Kanit-Bold.ttf in Resources */,
+				2DA1EBE92736101100700D8B /* Kanit-Black.ttf in Resources */,
 				CB931B2D2718D5200014FDE3 /* LaunchScreen.storyboard in Resources */,
+				2DA1EBD12736101100700D8B /* Kanit-ExtraLight.ttf in Resources */,
 				CB931B582718D9CF0014FDE3 /* GoogleService-Info.plist in Resources */,
+				2DA1EBD72736101100700D8B /* Kanit-Medium.ttf in Resources */,
 				CB931B2A2718D5200014FDE3 /* Assets.xcassets in Resources */,
+				2DA1EBC52736101100700D8B /* Kanit-Regular.ttf in Resources */,
 				CB931B282718D51C0014FDE3 /* Main.storyboard in Resources */,
+				2DA1EBE32736101100700D8B /* Kanit-Thin.ttf in Resources */,
+				2DA1EBC22736101100700D8B /* Kanit-SemiBold.ttf in Resources */,
+				2DA1EBC82736101100700D8B /* Kanit-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +363,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA1EBC32736101100700D8B /* Kanit-SemiBold.ttf in Resources */,
+				2DA1EBCC2736101100700D8B /* Kanit-Bold.ttf in Resources */,
+				2DA1EBD22736101100700D8B /* Kanit-ExtraLight.ttf in Resources */,
+				2DA1EBE72736101100700D8B /* Kanit-ExtraBold.ttf in Resources */,
+				2DA1EBC62736101100700D8B /* Kanit-Regular.ttf in Resources */,
+				2DA1EBEA2736101100700D8B /* Kanit-Black.ttf in Resources */,
+				2DA1EBE42736101100700D8B /* Kanit-Thin.ttf in Resources */,
+				2DA1EBD82736101100700D8B /* Kanit-Medium.ttf in Resources */,
+				2DA1EBC92736101100700D8B /* Kanit-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +379,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA1EBC42736101100700D8B /* Kanit-SemiBold.ttf in Resources */,
+				2DA1EBCD2736101100700D8B /* Kanit-Bold.ttf in Resources */,
+				2DA1EBD32736101100700D8B /* Kanit-ExtraLight.ttf in Resources */,
+				2DA1EBE82736101100700D8B /* Kanit-ExtraBold.ttf in Resources */,
+				2DA1EBC72736101100700D8B /* Kanit-Regular.ttf in Resources */,
+				2DA1EBEB2736101100700D8B /* Kanit-Black.ttf in Resources */,
+				2DA1EBE52736101100700D8B /* Kanit-Thin.ttf in Resources */,
+				2DA1EBD92736101100700D8B /* Kanit-Medium.ttf in Resources */,
+				2DA1EBCA2736101100700D8B /* Kanit-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,8 +398,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D948FC72731E174001EB8A0 /* ChooseType.swift in Sources */,
 				CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */,
+				2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */,
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
+				2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */,
+				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
 				CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */,
 				2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */,
@@ -318,7 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				CB931B382718D5200014FDE3 /* classattendanceprojectTests.swift in Sources */,
+				2DA1EBFB2736707800700D8B /* SubjectCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +429,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB931B442718D5200014FDE3 /* classattendanceprojectUITestsLaunchTests.swift in Sources */,
+				2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */,
+				2DA1EBFC2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B422718D5200014FDE3 /* classattendanceprojectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

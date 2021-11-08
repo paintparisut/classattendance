@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  RegisterLecturer.swift
 //  classattendanceproject
 //
-//  Created by Parisut Supchokpool on 15/10/2564 BE.
+//  Created by TAPE on 6/11/2564 BE.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class RegisterLecturer: UIViewController {
 
     @IBOutlet weak var tffullname: CustomTextField!
     @IBOutlet weak var tfemail: UITextField!
@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfconfirmpass: UITextField!
     @IBOutlet weak var tfstudentnum: UITextField!
     
-    var userType:String = "student"
+    var userType:String = ""
     
     @IBAction func onTapRegister(_ sender: Any) {
         DatabaseManager.shared.register(name: tffullname.text ?? "", email: tfemail.text ?? "", password: tfpassword.text ?? "", usernumber: tfstudentnum.text ?? "" ,type: userType){ [weak self] (result) in
@@ -50,6 +50,5 @@ class ViewController: UIViewController {
     @IBOutlet weak var cfpasswordtextlable: UILabel!
     @IBOutlet weak var registerbtntext: UIButton!
 
-    
-}
 
+}
