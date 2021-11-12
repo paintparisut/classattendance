@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Yu-kw-eMI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gra-uD-GuY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -12,7 +12,7 @@
         <!--Enter Site-->
         <scene sceneID="x5A-uK-c4u">
             <objects>
-                <viewController id="gra-uD-GuY" customClass="EnterSite" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entersite" id="gra-uD-GuY" customClass="EnterSite" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SLO-Rs-w9B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="student:" destination="NDC-eX-gOL" eventType="touchUpInside" id="s5Y-vm-crd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cR-Br-QrO">
                                 <rect key="frame" x="107" y="487" width="200" height="200"/>
@@ -106,6 +109,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="40"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="teacher:" destination="NDC-eX-gOL" eventType="touchUpInside" id="3N8-IC-4Op"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="นักศึกษา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB9-Pb-bTJ">
                                 <rect key="frame" x="107" y="419" width="192" height="34"/>
@@ -273,7 +279,6 @@
                         <outlet property="studentIDtextlable" destination="wd0-mf-9jw" id="lLh-I1-Dnk"/>
                         <outlet property="tfconfirmpass" destination="TVn-lM-iyz" id="y8D-ar-9qR"/>
                         <outlet property="tfemail" destination="Ta9-UA-Inj" id="Emd-CD-j9c"/>
-                        <outlet property="tffirstname" destination="jPZ-G8-a9c" id="bpc-bn-MBw"/>
                         <outlet property="tffullname" destination="jPZ-G8-a9c" id="JQK-3j-JQ2"/>
                         <outlet property="tfpassword" destination="CaI-8Y-4AR" id="cmH-Go-erc"/>
                         <outlet property="tfstudentnum" destination="FYe-du-eiI" id="JML-bJ-IQP"/>
@@ -281,7 +286,63 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792.75362318840587" y="-344.19642857142856"/>
+            <point key="canvasLocation" x="793" y="-304"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="7OE-mv-2Ia">
+            <objects>
+                <viewController storyboardIdentifier="profile" id="aZ2-49-Ulu" customClass="ProfileViewController" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kZ5-0w-EjZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lle-Nn-gaC">
+                                <rect key="frame" x="172" y="593" width="70" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="aZ2-49-Ulu" eventType="touchUpInside" id="9rY-8N-s6r"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z9T-Db-j8Y">
+                                <rect key="frame" x="114" y="171" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Frs-tG-PaW">
+                                <rect key="frame" x="114" y="235" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVz-i8-j0g">
+                                <rect key="frame" x="114" y="300" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qUV-Jk-EGe">
+                                <rect key="frame" x="114" y="364" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aBx-MJ-Jhg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="tfemail" destination="z9T-Db-j8Y" id="shG-AT-uCt"/>
+                        <outlet property="tfname" destination="Frs-tG-PaW" id="h3D-oT-mIZ"/>
+                        <outlet property="tfnumber" destination="cVz-i8-j0g" id="6RN-pw-DK3"/>
+                        <outlet property="tftype" destination="qUV-Jk-EGe" id="A8v-ks-d0e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czj-f2-MWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="355"/>
         </scene>
         <!--Login Page-->
         <scene sceneID="Oyl-5u-slt">
@@ -504,6 +565,9 @@
                                             <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
                                             <color key="baseForegroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="profileButton:" destination="7Yu-kw-eMI" eventType="touchUpInside" id="WP3-lk-txo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -529,7 +593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c1-Ba-ZmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1533" y="-304"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JWA-kY-Hg2">

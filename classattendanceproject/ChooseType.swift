@@ -20,6 +20,20 @@ class ChooseType: UIViewController {
         lec.font = UIFont(name: Constants.ConstantFont.Medium, size: 22)
     }
     
+    @IBAction func student(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "register") as! ViewController
+        vc.userType = "student"
+        present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func teacher(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "register") as! ViewController
+        vc.userType = "teacher"
+        present(vc, animated: true, completion: nil)
+
+    }
+    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "student" {
 //            let registerVc = segue.destination as! ViewController

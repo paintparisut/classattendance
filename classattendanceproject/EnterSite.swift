@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EnterSite: UIViewController {
 
@@ -39,5 +40,24 @@ class EnterSite: UIViewController {
         let ChooseTypeViewController = self.storyboard?.instantiateViewController(identifier: "choosetype") as? ChooseType
         self.view.window?.rootViewController = ChooseTypeViewController
         self.view.window?.makeKeyAndVisible()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DatabaseManager.shared.HomePage = self
+        DatabaseManager.shared.showApp()
+
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        var viewController: UIViewController
+//
+//        if FirebaseAuth.Auth.auth().currentUser == nil {
+//            // User is not signed in.
+//            viewController = storyboard.instantiateViewController(withIdentifier: "entersite")
+//            print("No user")
+//        }
+//        else{
+//            viewController = storyboard.instantiateViewController(withIdentifier: "home")
+//            print("Got user")
+//        }
     }
 }

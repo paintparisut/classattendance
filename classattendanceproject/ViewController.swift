@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfconfirmpass: UITextField!
     @IBOutlet weak var tfstudentnum: UITextField!
     
-    var userType:String = "student"
+    var userType:String = ""
     
     @IBAction func onTapRegister(_ sender: Any) {
         DatabaseManager.shared.register(name: tffullname.text ?? "", email: tfemail.text ?? "", password: tfpassword.text ?? "", usernumber: tfstudentnum.text ?? "" ,type: userType){ [weak self] (result) in
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         passwordtextlable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         cfpasswordtextlable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         registerbtntext.titleLabel!.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        print("regis",userType)
         
     }
     

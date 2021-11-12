@@ -8,12 +8,14 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import UIKit
 
 class DatabaseManager {
     private let db = Firestore.firestore()
     private let auth = Auth.auth()
     static let shared = DatabaseManager()
     
+    //register
     public func register(name:String,email:String,password:String,usernumber:String,type:String,completion:@escaping(Result<UserModel,Error>) -> Void) {
         auth.createUser(withEmail: email, password: password) { [weak self] (authresult,error) in
             guard let strongSelf = self else {return}
@@ -44,6 +46,7 @@ class DatabaseManager {
                         response.email = email
                         response.name = name
                         response.usernumber = usernumber
+                        response.usertype = type
                         response.password = password
                         completion(.success(response))
                     }
@@ -51,4 +54,72 @@ class DatabaseManager {
             }
         }
     }
+        
+    //signed in auto
+    var HomePage:EnterSite!
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+    func showApp() {
+        var viewController: UIViewController
+        if FirebaseAuth.Auth.auth().currentUser != nil {
+            // User is signed in.
+            viewController = storyboard.instantiateViewController(withIdentifier: "home")
+            HomePage.present(viewController,animated: false , completion: nil)
+            print("User is signed in")
+            }
+            else {
+            // No user is signed in.
+            // viewController = storyboard.instantiateViewController(withIdentifier: "entersite")
+            print("User is not signed in")
+        }
+        //HomePage.present(viewController,animated: true , completion: nil)
+    }
+    
+    //logout
+    func logout() {
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+            print("Log Out Success")
+        }
+        catch {
+            print("An error occurred")
+        }
+    }
+
+    func getdataCon() {
+        
+    }
+    
+    func getdata(data:String,get:UITextField) {
+        let doc = Auth.auth().currentUser?.uid
+        let docRef = db.collection("user").document(doc!)
+       
+        //Documents
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+               // print("Document data: \(dataDescription)") //ใช้test
+            } else {
+                print("Document does not exist")
+            }
+        }
+        
+        //Data
+       // var showdata = String()
+        docRef.getDocument { (document, error) in
+            guard let document = document, document.exists else {
+                print("Document does not exist")
+                return
+            }
+            let dataDescription = document.data()
+           // print(dataDescription?[data] ?? "")
+            get.text! = dataDescription?[data] as! String
+        }
+        
+        
+    }
+
+    
+    
+    
 }

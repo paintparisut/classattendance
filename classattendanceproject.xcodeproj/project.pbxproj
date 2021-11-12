@@ -42,8 +42,6 @@
 		2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
 		2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
 		2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
-		2DA1EBFB2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
-		2DA1EBFC2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
 		CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB184F662721DE1C007FFF8D /* LoginPage.swift */; };
 		CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82AB2E273012150066DD16 /* HomeViewController.swift */; };
 		CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB931B202718D51C0014FDE3 /* AppDelegate.swift */; };
@@ -61,6 +59,7 @@
 		CB931B582718D9CF0014FDE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB931B572718D9CF0014FDE3 /* GoogleService-Info.plist */; };
 		CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5729C271F47BA00EF0E77 /* DatabaseManager.swift */; };
 		CBB5729F271F4A9E00EF0E77 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5729E271F4A9E00EF0E77 /* Model.swift */; };
+		CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +113,7 @@
 		CB931B572718D9CF0014FDE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBB5729C271F47BA00EF0E77 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		CBB5729E271F4A9E00EF0E77 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +165,7 @@
 			children = (
 				CBB5729E271F4A9E00EF0E77 /* Model.swift */,
 				2D5EC393271FFF3C005F97BC /* Constants.swift */,
+				2DA1EBF92736707800700D8B /* SubjectCardCell.swift */,
 				2D8757CF2725CC5B008549BE /* CustomTextField.swift */,
 			);
 			path = Helpers;
@@ -202,7 +203,7 @@
 				2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */,
 				CB184F662721DE1C007FFF8D /* LoginPage.swift */,
 				CB82AB2E273012150066DD16 /* HomeViewController.swift */,
-				2DA1EBF92736707800700D8B /* SubjectCardCell.swift */,
+				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
 				2D948FC42731E139001EB8A0 /* EnterSite.swift */,
 				2D948FC62731E174001EB8A0 /* ChooseType.swift */,
 				CB931B262718D51C0014FDE3 /* Main.storyboard */,
@@ -402,6 +403,7 @@
 				CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */,
 				2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */,
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
+				CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */,
 				2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
@@ -420,7 +422,6 @@
 			files = (
 				2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				CB931B382718D5200014FDE3 /* classattendanceprojectTests.swift in Sources */,
-				2DA1EBFB2736707800700D8B /* SubjectCardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +431,6 @@
 			files = (
 				CB931B442718D5200014FDE3 /* classattendanceprojectUITestsLaunchTests.swift in Sources */,
 				2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */,
-				2DA1EBFC2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B422718D5200014FDE3 /* classattendanceprojectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

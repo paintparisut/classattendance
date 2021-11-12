@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDelegate  {
-    
 //    @IBOutlet weak var headerlable: UILabel!
     
     @IBOutlet weak var headerlable: UILabel!
@@ -30,6 +30,12 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         return cell
     }
     
+
+    @IBAction func profileButton(_ sender: Any) {
+        let Profile = self.storyboard?.instantiateViewController(identifier: "profile") as? ProfileViewController
+        self.view.window?.rootViewController = Profile
+        //self.view.window?.makeKeyAndVisible()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 28)
@@ -37,4 +43,5 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //        headerlable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 28)
 //        headerlable.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)
     }
+
 }
