@@ -59,20 +59,9 @@ class DatabaseManager {
     var HomePage:EnterSite!
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-    func showApp() {
-        var viewController: UIViewController
-        if FirebaseAuth.Auth.auth().currentUser != nil {
-            // User is signed in.
-            viewController = storyboard.instantiateViewController(withIdentifier: "home")
-            HomePage.present(viewController,animated: false , completion: nil)
-            print("User is signed in")
-            }
-            else {
-            // No user is signed in.
-            // viewController = storyboard.instantiateViewController(withIdentifier: "entersite")
-            print("User is not signed in")
-        }
-        //HomePage.present(viewController,animated: true , completion: nil)
+    //ให้ return ค่า bool
+    func showApp() -> Bool {
+        return (auth.currentUser != nil)
     }
     
     //logout
@@ -98,8 +87,9 @@ class DatabaseManager {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-               // print("Document data: \(dataDescription)") //ใช้test
-            } else {
+                print("Document data: \(dataDescription)") //ใช้test
+            }
+            else {
                 print("Document does not exist")
             }
         }
@@ -115,11 +105,5 @@ class DatabaseManager {
            // print(dataDescription?[data] ?? "")
             get.text! = dataDescription?[data] as! String
         }
-        
-        
     }
-
-    
-    
-    
 }

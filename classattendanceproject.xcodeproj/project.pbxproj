@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D5EC394271FFF3D005F97BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EC393271FFF3C005F97BC /* Constants.swift */; };
 		2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8757CF2725CC5B008549BE /* CustomTextField.swift */; };
+		2D8E8C45274127FC00D0E159 /* SubjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */; };
+		2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E8C482741315D00D0E159 /* CreateClass.swift */; };
 		2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D948FC42731E139001EB8A0 /* EnterSite.swift */; };
 		2D948FC72731E174001EB8A0 /* ChooseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D948FC62731E174001EB8A0 /* ChooseType.swift */; };
 		2DA1EBC22736101100700D8B /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */; };
@@ -39,8 +41,6 @@
 		2DA1EBEA2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBEB2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
-		2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
-		2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
 		2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
 		CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB184F662721DE1C007FFF8D /* LoginPage.swift */; };
 		CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82AB2E273012150066DD16 /* HomeViewController.swift */; };
@@ -82,6 +82,8 @@
 /* Begin PBXFileReference section */
 		2D5EC393271FFF3C005F97BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2D8757CF2725CC5B008549BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfo.swift; sourceTree = "<group>"; };
+		2D8E8C482741315D00D0E159 /* CreateClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClass.swift; sourceTree = "<group>"; };
 		2D948FC42731E139001EB8A0 /* EnterSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterSite.swift; sourceTree = "<group>"; };
 		2D948FC62731E174001EB8A0 /* ChooseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseType.swift; sourceTree = "<group>"; };
 		2DA1EBAE2736101000700D8B /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -144,6 +146,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D8E8C462741293C00D0E159 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				CB931B242718D51C0014FDE3 /* ViewController.swift */,
+				2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */,
+				2D948FC42731E139001EB8A0 /* EnterSite.swift */,
+				2D948FC62731E174001EB8A0 /* ChooseType.swift */,
+				CB184F662721DE1C007FFF8D /* LoginPage.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		2D8E8C472741297F00D0E159 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CB82AB2E273012150066DD16 /* HomeViewController.swift */,
+				2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */,
+				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
+				2D8E8C482741315D00D0E159 /* CreateClass.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		2DA1EBAC27360FAF00700D8B /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,13 +224,8 @@
 				CB931B202718D51C0014FDE3 /* AppDelegate.swift */,
 				CB931B222718D51C0014FDE3 /* SceneDelegate.swift */,
 				CB82AB30273013930066DD16 /* Helpers */,
-				CB931B242718D51C0014FDE3 /* ViewController.swift */,
-				2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */,
-				CB184F662721DE1C007FFF8D /* LoginPage.swift */,
-				CB82AB2E273012150066DD16 /* HomeViewController.swift */,
-				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
-				2D948FC42731E139001EB8A0 /* EnterSite.swift */,
-				2D948FC62731E174001EB8A0 /* ChooseType.swift */,
+				2D8E8C462741293C00D0E159 /* Auth */,
+				2D8E8C472741297F00D0E159 /* Main */,
 				CB931B262718D51C0014FDE3 /* Main.storyboard */,
 				CB931B292718D5200014FDE3 /* Assets.xcassets */,
 				CB931B2B2718D5200014FDE3 /* LaunchScreen.storyboard */,
@@ -399,11 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D8E8C45274127FC00D0E159 /* SubjectInfo.swift in Sources */,
 				2D948FC72731E174001EB8A0 /* ChooseType.swift in Sources */,
 				CBB5729D271F47BA00EF0E77 /* DatabaseManager.swift in Sources */,
 				2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */,
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
 				CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */,
+				2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */,
 				2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
@@ -420,7 +442,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DA1EBF727363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				CB931B382718D5200014FDE3 /* classattendanceprojectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +451,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB931B442718D5200014FDE3 /* classattendanceprojectUITestsLaunchTests.swift in Sources */,
-				2DA1EBF827363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				CB931B422718D5200014FDE3 /* classattendanceprojectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

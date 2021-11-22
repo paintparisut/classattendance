@@ -39,10 +39,21 @@ class ViewController: UIViewController {
         passwordtextlable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         cfpasswordtextlable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         registerbtntext.titleLabel!.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        registerbtnlable.titleLabel!.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        lable.font = UIFont(name: Constants.ConstantFont.Thin, size: 18)
         print("regis",userType)
         
     }
     
+    
+    @IBAction func registerbtn(_ sender: Any) {
+        let loginController = self.storyboard?.instantiateViewController(identifier: "gotologin") as? LoginPage
+        self.view.window?.rootViewController = loginController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
+    @IBOutlet weak var registerbtnlable: UIButton!
+    @IBOutlet weak var lable: UILabel!
     @IBOutlet weak var registertextlable: UILabel!
     @IBOutlet weak var emailtextlable: UILabel!
     @IBOutlet weak var studentIDtextlable: UILabel!

@@ -46,6 +46,14 @@ class EnterSite: UIViewController {
         super.viewDidAppear(animated)
         DatabaseManager.shared.HomePage = self
         DatabaseManager.shared.showApp()
+        print(DatabaseManager.shared.showApp())
+        if DatabaseManager.shared.showApp() {
+            let home = self.storyboard?.instantiateViewController(identifier: "home") as? HomeViewController
+            self.view.window?.rootViewController = home
+            self.view.window?.makeKeyAndVisible()
+//            self.navigationController?.pushViewController(home!, animated: true)
+        }
+        
 
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        var viewController: UIViewController
