@@ -16,12 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfstudentnum: UITextField!
     
     var userType:String = ""
-    
     @IBAction func onTapRegister(_ sender: Any) {
         DatabaseManager.shared.register(name: tffullname.text ?? "", email: tfemail.text ?? "", password: tfpassword.text ?? "", usernumber: tfstudentnum.text ?? "" ,type: userType){ [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
+                    DatabaseManager.shared.saveType(type: user.usertype!)
                     print("USER",user)
                 case .failure(let error):
                     print("ERROR",error) //.localizedDescription

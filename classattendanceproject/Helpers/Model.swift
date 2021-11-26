@@ -15,3 +15,17 @@ struct UserModel:Codable {
     var usertype:String?
     var password:String?
 }
+
+struct ClassModel:Codable {
+    var doccumentID:String?
+    var inviteCode:String?
+    var classID:String?
+    var className:String?
+    var classLecID:String?
+    var classLecName:String?
+    var studentList:[String]?
+    var classtime:String?
+    var classdate:String?
+    var classactive:Bool?
+}
+

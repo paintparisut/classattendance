@@ -35,18 +35,34 @@ class LoginPage: UIViewController {
         let email = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // Signing in the user
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
-                print("Login Fail")
-            }
-            else {
-                print("Login Success!")
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: "home") as? HomeViewController
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+//        // Signing in the user
+//        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+//            if error != nil {
+//                print("Login Fail")
+//            }
+//            else {
+//                print("Login Success!")
+//                let homeViewController = self.storyboard?.instantiateViewController(identifier: "home")
+//                self.view.window?.rootViewController = homeViewController
+//                self.view.window?.makeKeyAndVisible()
+//            }
+//        }
+        DatabaseManager.shared.login(email: email, password: password) { [weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
+                    DatabaseManager.shared.saveType(type: user.usertype!)
+                    DatabaseManager.shared.saveUserID(type: user.usernumber!)
+                    print("USER",user)
+                    let homeViewController = self?.storyboard?.instantiateViewController(identifier: "home")
+                    self?.view.window?.rootViewController = homeViewController
+                    self?.view.window?.makeKeyAndVisible()
+                case .failure(let error):
+                    print("ERROR",error) //.localizedDescription
+                }
             }
         }
+
     }
     
     @IBAction func registerBtn(_ sender: Any) {

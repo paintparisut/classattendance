@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func logoutbtn(_ sender: Any) {
+//        UserDefaults.standard.removeObject(forKey: "Type")
+        DatabaseManager.shared.removeType()
+        DatabaseManager.shared.removeUserID()
         DatabaseManager.shared.logout()
         let Entersite = self.storyboard?.instantiateViewController(identifier: "entersite") as? EnterSite
         self.view.window?.rootViewController = Entersite
@@ -25,7 +28,7 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func backbtn(_ sender: Any) {
-        let home = self.storyboard?.instantiateViewController(identifier: "home") as? HomeViewController
+        let home = self.storyboard?.instantiateViewController(identifier: "home")
         self.view.window?.rootViewController = home
     }
     
@@ -46,6 +49,7 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+
     @IBOutlet weak var emaillable: UILabel!
     @IBOutlet weak var namelable: UILabel!
     @IBOutlet weak var stdIDlable: UILabel!

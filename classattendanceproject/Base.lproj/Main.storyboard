@@ -315,7 +315,6 @@
         <!--Profile View Controller-->
         <scene sceneID="7OE-mv-2Ia">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="czj-f2-MWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="profile" id="aZ2-49-Ulu" customClass="ProfileViewController" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kZ5-0w-EjZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -425,6 +424,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="back:" destination="Cc9-Dl-gzI" eventType="touchUpInside" id="nNp-h7-Wdn"/>
                                     <action selector="backbtn:" destination="aZ2-49-Ulu" eventType="touchUpInside" id="0u7-Y4-D81"/>
                                 </connections>
                             </button>
@@ -445,6 +445,8 @@
                         <outlet property="usertypelable" destination="iR7-ZB-eww" id="K2G-fh-bHq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czj-f2-MWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Cc9-Dl-gzI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2302.898550724638" y="354.91071428571428"/>
         </scene>
@@ -553,7 +555,7 @@
         <!--Home View Controller-->
         <scene sceneID="P6E-jd-j6I">
             <objects>
-                <viewController storyboardIdentifier="home" id="7Yu-kw-eMI" customClass="HomeViewController" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Yu-kw-eMI" customClass="HomeViewController" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Irx-lr-AIP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,7 +650,6 @@
                                                     <outlet property="checkbtn" destination="pdj-Xj-QpN" id="6J0-dJ-zzb"/>
                                                     <outlet property="ststusview" destination="Pjo-rR-0eg" id="Wda-b1-k9v"/>
                                                     <outlet property="studentClass" destination="iDP-Ox-dA4" id="smh-A4-Ikh"/>
-                                                    <segue destination="QcU-Lk-8kp" kind="show" id="aWM-yH-ddj"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -722,18 +723,19 @@
                         <outlet property="headerlable" destination="9Df-rL-Ltv" id="2h5-iS-NnC"/>
                         <outlet property="permissionbtn" destination="PAz-vy-weH" id="mqv-wk-zbD"/>
                         <outlet property="tf" destination="MRT-0R-tJR" id="AQG-5b-UEZ"/>
+                        <segue destination="QcU-Lk-8kp" kind="show" identifier="show_class" id="Icb-xU-jFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c1-Ba-ZmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3339.130434782609" y="-304.01785714285711"/>
+            <point key="canvasLocation" x="4249.275362318841" y="-304.01785714285711"/>
         </scene>
         <!--Subject Info-->
         <scene sceneID="JWA-kY-Hg2">
             <objects>
                 <viewController id="QcU-Lk-8kp" customClass="SubjectInfo" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A5T-0T-Jed">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22g-Gx-wCy">
@@ -824,6 +826,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-3E-lGJ">
+                                <rect key="frame" x="10" y="41" width="40" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Caret left" title="" buttonSize="large">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h3O-s3-jyY"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -835,7 +845,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNv-S5-lnP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4123.188405797102" y="-304.01785714285711"/>
+            <point key="canvasLocation" x="5084" y="-304"/>
         </scene>
         <!--Create Class-->
         <scene sceneID="SFH-fL-Ana">
@@ -853,28 +863,28 @@
                                         <rect key="frame" x="0.0" y="95" width="414" height="919"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-0A-0O9" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-0A-0O9" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="172" width="335" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVP-wg-ydi" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVP-wg-ydi" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="248" width="335" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UpS-fP-BYC" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UpS-fP-BYC" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="96" width="335" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHS-ga-yGx" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHS-ga-yGx" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="327" width="335" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -902,7 +912,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลาเริ่มเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-eG-0A7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลาเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-eG-0A7">
                                                 <rect key="frame" x="40" y="306" width="257" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -913,19 +923,20 @@
                                                 <rect key="frame" x="42" y="696" width="330" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="ออกจากระบบ"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="เพิ่มคลาส"/>
                                                 <connections>
+                                                    <action selector="addclass:" destination="PKb-lU-JlR" eventType="touchUpInside" id="Pnw-3k-NT1"/>
                                                     <action selector="logoutbtn:" destination="aZ2-49-Ulu" eventType="touchUpInside" id="CnW-v1-Cqm"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-GL-3fx" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-GL-3fx" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="401" width="335" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลาเริ่มเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-KV-d1t">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันที่เรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-KV-d1t">
                                                 <rect key="frame" x="40" y="380" width="257" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -953,7 +964,7 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="backbtn:" destination="aZ2-49-Ulu" eventType="touchUpInside" id="ft4-dU-S14"/>
+                                            <action selector="back:" destination="PKb-lU-JlR" eventType="touchUpInside" id="edV-xB-Vgn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -964,10 +975,53 @@
                         <viewLayoutGuide key="safeArea" id="1zR-cn-dIj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="classDate" destination="JCJ-GL-3fx" id="u20-xr-4aH"/>
+                        <outlet property="classID" destination="UpS-fP-BYC" id="2pF-FT-WCl"/>
+                        <outlet property="classLect" destination="SVP-wg-ydi" id="NCN-8U-jtA"/>
+                        <outlet property="className" destination="SEC-0A-0O9" id="qyF-5N-Q4a"/>
+                        <outlet property="classTime" destination="UHS-ga-yGx" id="2tg-5V-9JJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDX-l7-JEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3339" y="377"/>
+        </scene>
+        <!--Invite Class-->
+        <scene sceneID="xwL-La-srC">
+            <objects>
+                <viewController storyboardIdentifier="invitecode" id="IwU-L1-4qg" customClass="InviteClass" customModule="classattendanceproject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DQp-n4-bxD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdS-Pu-M5H">
+                                <rect key="frame" x="20" y="67" width="92" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="backhome"/>
+                                <connections>
+                                    <action selector="back:" destination="IwU-L1-4qg" eventType="touchUpInside" id="C1R-HH-28v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vst-YO-jbs">
+                                <rect key="frame" x="96" y="171" width="222" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gj1-7X-sOn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="showInviteCode" destination="vst-YO-jbs" id="wxe-WR-ljx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vsW-Jr-nD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4160.8695652173919" y="375.66964285714283"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mo1-L3-cqe">
@@ -985,6 +1039,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Pa-Al-EJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-693" y="70"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pKy-ti-nvK">
+            <objects>
+                <navigationController storyboardIdentifier="home" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="wQt-8Y-dQI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ars-2e-pAT">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Yu-kw-eMI" kind="relationship" relationship="rootViewController" id="2pg-98-nIf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gcf-bw-6qI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3339.130434782609" y="-304.01785714285711"/>
         </scene>
     </scenes>
     <resources>

@@ -40,9 +40,9 @@
 		2DA1EBE92736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBEA2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBEB2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
-		2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */; };
 		2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
 		CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB184F662721DE1C007FFF8D /* LoginPage.swift */; };
+		CB33DDB6274C22D300CC7024 /* InviteClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB33DDB5274C22D300CC7024 /* InviteClass.swift */; };
 		CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82AB2E273012150066DD16 /* HomeViewController.swift */; };
 		CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB931B202718D51C0014FDE3 /* AppDelegate.swift */; };
 		CB931B232718D51C0014FDE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB931B222718D51C0014FDE3 /* SceneDelegate.swift */; };
@@ -95,9 +95,9 @@
 		2DA1EBB92736101100700D8B /* Kanit-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Thin.ttf"; sourceTree = "<group>"; };
 		2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Black.ttf"; sourceTree = "<group>"; };
-		2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLecturer.swift; sourceTree = "<group>"; };
 		2DA1EBF92736707800700D8B /* SubjectCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardCell.swift; sourceTree = "<group>"; };
 		CB184F662721DE1C007FFF8D /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		CB33DDB5274C22D300CC7024 /* InviteClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteClass.swift; sourceTree = "<group>"; };
 		CB82AB2E273012150066DD16 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CB931B1D2718D51C0014FDE3 /* classattendanceproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = classattendanceproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB931B202718D51C0014FDE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				CB931B242718D51C0014FDE3 /* ViewController.swift */,
-				2DA1EBF527363F7900700D8B /* RegisterLecturer.swift */,
 				2D948FC42731E139001EB8A0 /* EnterSite.swift */,
 				2D948FC62731E174001EB8A0 /* ChooseType.swift */,
 				CB184F662721DE1C007FFF8D /* LoginPage.swift */,
@@ -165,6 +164,7 @@
 				2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */,
 				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
 				2D8E8C482741315D00D0E159 /* CreateClass.swift */,
+				CB33DDB5274C22D300CC7024 /* InviteClass.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -426,10 +426,10 @@
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
 				CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */,
 				2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */,
-				2DA1EBF627363F7900700D8B /* RegisterLecturer.swift in Sources */,
 				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
 				CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */,
+				CB33DDB6274C22D300CC7024 /* InviteClass.swift in Sources */,
 				2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */,
 				CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */,
 				CBB5729F271F4A9E00EF0E77 /* Model.swift in Sources */,
