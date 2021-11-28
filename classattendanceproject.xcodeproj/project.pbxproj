@@ -41,6 +41,7 @@
 		2DA1EBEA2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBEB2736101100700D8B /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */; };
 		2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EBF92736707800700D8B /* SubjectCardCell.swift */; };
+		2DCFBCD82753D85200BD2E27 /* JoinClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCFBCD72753D85200BD2E27 /* JoinClass.swift */; };
 		CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB184F662721DE1C007FFF8D /* LoginPage.swift */; };
 		CB33DDB6274C22D300CC7024 /* InviteClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB33DDB5274C22D300CC7024 /* InviteClass.swift */; };
 		CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82AB2E273012150066DD16 /* HomeViewController.swift */; };
@@ -96,6 +97,7 @@
 		2DA1EBBA2736101100700D8B /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraBold.ttf"; sourceTree = "<group>"; };
 		2DA1EBBB2736101100700D8B /* Kanit-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Black.ttf"; sourceTree = "<group>"; };
 		2DA1EBF92736707800700D8B /* SubjectCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCardCell.swift; sourceTree = "<group>"; };
+		2DCFBCD72753D85200BD2E27 /* JoinClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinClass.swift; sourceTree = "<group>"; };
 		CB184F662721DE1C007FFF8D /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		CB33DDB5274C22D300CC7024 /* InviteClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteClass.swift; sourceTree = "<group>"; };
 		CB82AB2E273012150066DD16 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
 				2D8E8C482741315D00D0E159 /* CreateClass.swift */,
 				CB33DDB5274C22D300CC7024 /* InviteClass.swift */,
+				2DCFBCD72753D85200BD2E27 /* JoinClass.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
 				CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */,
 				2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */,
+				2DCFBCD82753D85200BD2E27 /* JoinClass.swift in Sources */,
 				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
 				CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */,

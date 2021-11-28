@@ -56,15 +56,25 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         self.view.window?.rootViewController = Create
     }
     
+    @IBAction func joinClass(_ sender: Any) {
+        let Join = self.storyboard?.instantiateViewController(identifier: "joinclass") as? JoinClass
+        self.view.window?.rootViewController = Join
+        
+    }
     
+    @IBOutlet weak var joinClassbtn: UIButton!
     @IBOutlet weak var permissionbtn: UIButton!
-    @IBOutlet weak var tf: UITextField!
     override func viewDidLoad() {
         DatabaseManager.shared.getalldata()
         super.viewDidLoad()
-        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 28)
+        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
-        permissionbtn.titleLabel?.font = UIFont(name: Constants.ConstantFont.Regular, size: 14)
+        permissionbtn.isHidden = true
+        addClassCustomBtn.layer.shadowColor = UIColor.gray.cgColor
+        addClassCustomBtn.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        addClassCustomBtn.layer.shadowOpacity = 0.8
+        addClassCustomBtn.layer.masksToBounds = false
+        addClassCustomBtn.layer.shadowRadius = 5
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,10 +85,12 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         }
     }
     
+    @IBOutlet weak var addClassCustomBtn: UIButton!
+    
     override func viewDidAppear(_ animated: Bool) {
         setaddClassButton()
         //เช็คหน้าซ้อน
-        //print(self.navigationController?.viewControllers.count)
+        print(self.navigationController?.viewControllers.count)
         // ลบหน้าตามindex(count)
         //self.navigationController?.viewControllers.remove(at:navigationController!.viewControllers.count)
         //กลับหน้า
@@ -91,6 +103,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         switch type {
         case "teacher" :
             permissionbtn.isHidden = false
+            joinClassbtn.isHidden = true
         default :
             permissionbtn.isHidden = true
         }

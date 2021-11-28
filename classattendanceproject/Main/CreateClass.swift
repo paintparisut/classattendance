@@ -14,6 +14,8 @@ class CreateClass: UIViewController {
     @IBOutlet weak var classLect: CustomTextField!
     @IBOutlet weak var classTime: CustomTextField!
     @IBOutlet weak var classDate: CustomTextField!
+    @IBOutlet weak var headerlable: UILabel!
+
     
     @IBAction func back(_ sender: Any) {
         let home = self.storyboard?.instantiateViewController(identifier: "home")
@@ -42,7 +44,12 @@ class CreateClass: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
+        classID.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
+        classDate.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
+        classLect.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
+        className.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
+        classTime.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         // Do any additional setup after loading the view.
     }
     

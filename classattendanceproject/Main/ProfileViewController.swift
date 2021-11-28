@@ -42,18 +42,18 @@ class ProfileViewController: UIViewController {
         namelable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         stdIDlable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         usertypelable.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
-        logoutbtntext.tintColor = UIColor(cgColor: Constants.GraphicColors.COSCI_ERROR_COLOR)
-        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 28)
+        logoutBtnOutlet.tintColor = UIColor(cgColor: Constants.GraphicColors.COSCI_ERROR_COLOR)
+        headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
-        logoutbtntext.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        logoutBtnOutlet.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
 
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var logoutBtnOutlet: UIButton!
     @IBOutlet weak var emaillable: UILabel!
     @IBOutlet weak var namelable: UILabel!
     @IBOutlet weak var stdIDlable: UILabel!
     @IBOutlet weak var usertypelable: UILabel!
-    @IBOutlet weak var logoutbtntext: UIButton!
     
 }

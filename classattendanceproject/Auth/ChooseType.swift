@@ -32,7 +32,9 @@ class ChooseType: UIViewController {
     @IBAction func teacher(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "register") as! ViewController
         vc.userType = "teacher"
-        present(vc, animated: true, completion: nil)
+        let RegisterViewController = self.storyboard?.instantiateViewController(identifier: "register") as? ViewController
+        self.view.window?.rootViewController = RegisterViewController
+        self.view.window?.makeKeyAndVisible()
 
     }
     
