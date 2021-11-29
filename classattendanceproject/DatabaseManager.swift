@@ -232,7 +232,8 @@ class DatabaseManager {
         UserDefaults.standard.removeObject(forKey: "InviteCode")
     }
     
-    func updateDocID(){
+    //insert uid intoClass
+    func updateDocIDClass(){
         db.collection("class").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -254,13 +255,13 @@ class DatabaseManager {
         }
     }
     
-    func getalldata() {
-        
-        var obj=[ClassModel]()
-
+    //getallclassdata
+    func getalldata(completion:@escaping(Result<[ClassModel],Error>) -> Void) {
+        var response = [ClassModel]()
         db.collection("class").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
+                completion(.failure(err))
             } else {
                 for document in querySnapshot!.documents {
                     var docRef = self.db.collection("class").document(document.documentID)
@@ -270,14 +271,127 @@ class DatabaseManager {
                             return
                         }
                         let dataDescription = document.data()
-                        obj.append(ClassModel(doccumentID: dataDescription?["doc_ID"] as! String, inviteCode: dataDescription!["invite_Code"] as! String, classID: dataDescription!["class_ID"] as! String, className: dataDescription!["class_name"] as! String, classLecID:dataDescription!["class_LecID"] as! String ,classLecName:dataDescription!["class_LecName"] as! String ,studentList:dataDescription!["studentList"] as! [String] ,classtime:dataDescription!["class_time"] as! String ,classdate:dataDescription!["class_date"] as! String ,classactive:dataDescription!["class_Active"] as! Bool))
-                        print(obj[0])
+//                        response.doccumentID = dataDescription?["doc_ID"] as! String
+//                        response.inviteCode = dataDescription?["invite_Code"] as! String
+//                        response.classID = dataDescription?["class_ID"] as! String
+//                        response.className = dataDescription?["class_name"] as! String
+//                        response.classLecName = dataDescription?["class_LecName"] as! String
+//                        response.classLecID = dataDescription?["class_LecID"] as! String
+//                        response.studentList = dataDescription?["studentList"] as! [String]
+//                        response.classtime = dataDescription?["class_time"] as! String
+//                        response.classdate = dataDescription?["class_date"] as! String
+//                        response.classactive = dataDescription?["class_Active"] as! Bool
+                        response.append(ClassModel(doccumentID: dataDescription?["doc_ID"] as! String, inviteCode: dataDescription!["invite_Code"] as! String, classID: dataDescription!["class_ID"] as! String, className: dataDescription!["class_name"] as! String, classLecID:dataDescription!["class_LecID"] as! String ,classLecName:dataDescription!["class_LecName"] as! String ,studentList:dataDescription!["studentList"] as? [String] ,classtime:dataDescription!["class_time"] as! String ,classdate:dataDescription!["class_date"] as! String ,classactive:dataDescription!["class_Active"] as! Bool))
+                        completion(.success(response))
                     }
                 }
             }
         }
-        // print(obj)
     }
 
+    //selectedClass Teacher
+    func selectedClassTeacher (number:String,classdata:[ClassModel]) -> [ClassModel] {
+        var obj = [ClassModel]()
+        for i in classdata {
+            if i.classLecID == number {
+                obj.append(i)
+            }
+        }
+        return(obj)
+    }
+    //selectedClass Student
+    func selectedClassStudent(number:String,classdata:[ClassModel]) -> [ClassModel] {
+        var obj = [ClassModel]()
+        for i in classdata {
+            for k in i.studentList! {
+                if number == k {
+                    obj.append(i)
+                }
+            }
+        }
+        return(obj)
+    }
 
+    //createClassAttendance
+    public func createClassAttendance(invite:String,completion:@escaping(Result<ClassAttendanceModel,Error>) -> Void) {
+        var ref: DocumentReference? = nil
+        var response = ClassAttendanceModel()
+        let invitecode = randomString()
+        ref = db.collection("classAttendance").addDocument(data: [
+            "doc_ID" : "",
+            "invite_code" : invite,
+            "studentNumber" : checkUserID(),
+            "status_Active": false
+        ]) { err in
+            if let err = err {
+                completion(.failure(err))
+            } else {
+                response.docID = ""
+                response.invite = invite
+                response.studentNumber = self.checkUserID()
+                response.statusactive = false
+                completion(.success(response))
+            }
+        }
+    }
+    
+    //insert uid ClassAttendance
+    func updateDocIDClassAttendance(){
+        db.collection("classAttendance").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let Ref = self.db.collection("classAttendance").document(document.documentID)
+
+                    Ref.updateData([
+                        "doc_ID": document.documentID
+                    ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //checkStudentJoinClass
+    func checkJoinClass(invite:String,classdata:[ClassModel]) -> Bool {
+        var check = false
+        for i in classdata {
+            if invite == i.inviteCode {
+                check = true
+            }
+        }
+        return check
+    }
+    
+    //getClassDocID
+    func getDocIDClassAttendance(invite:String,classdata:[ClassModel]) -> String {
+        var doc:String = ""
+        for i in classdata {
+            if invite == i.inviteCode{
+                doc = i.doccumentID!
+            }
+        }
+        return doc
+    }
+    
+    //addStudentToClass
+    func addStudentList(invite:String,classdata:[ClassModel],id:String){
+        let Ref = self.db.collection("class").document(getDocIDClassAttendance(invite: invite, classdata: classdata))
+
+        Ref.updateData([
+            "studentList": FieldValue.arrayUnion([id]) ,
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
 }

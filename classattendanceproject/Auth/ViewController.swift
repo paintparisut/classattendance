@@ -28,6 +28,8 @@ class ViewController: UIViewController {
                 }
             }
         }
+        let home = self.storyboard?.instantiateViewController(identifier: "home")
+        self.view.window?.rootViewController = home
     }
     
     override func viewDidLoad() {
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
         let loginController = self.storyboard?.instantiateViewController(identifier: "gotologin") as? LoginPage
         self.view.window?.rootViewController = loginController
         self.view.window?.makeKeyAndVisible()
+        
     }
     
     @IBOutlet weak var registerbtnlable: UIButton!

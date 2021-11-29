@@ -569,7 +569,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subjectcard" rowHeight="175" id="JP5-ds-tqc" customClass="SubjectCardCell" customModule="classattendanceproject" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subjectcard" rowHeight="175" id="JP5-ds-tqc">
                                                 <rect key="frame" x="0.0" y="44.5" width="414" height="175"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JP5-ds-tqc" id="WjF-3w-7Ew">
@@ -640,17 +640,6 @@
                                                         </view>
                                                     </subviews>
                                                 </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="StudentCount" destination="PTZ-UF-mkQ" id="X8D-17-Juy"/>
-                                                    <outlet property="SubjectID" destination="sEi-yo-l6j" id="ybu-f5-FSq"/>
-                                                    <outlet property="SubjectName" destination="w7N-gb-BuU" id="o4o-f2-2ke"/>
-                                                    <outlet property="SubjectTime" destination="fEa-H1-lTq" id="qEN-Qk-hWI"/>
-                                                    <outlet property="card" destination="RTD-tJ-jRk" id="MgL-JR-Lku"/>
-                                                    <outlet property="check" destination="ha9-o6-cWh" id="Rxf-9y-eYh"/>
-                                                    <outlet property="checkbtn" destination="pdj-Xj-QpN" id="6J0-dJ-zzb"/>
-                                                    <outlet property="ststusview" destination="Pjo-rR-0eg" id="Wda-b1-k9v"/>
-                                                    <outlet property="studentClass" destination="iDP-Ox-dA4" id="smh-A4-Ikh"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -729,6 +718,7 @@
                         <outlet property="headerlable" destination="9Df-rL-Ltv" id="2h5-iS-NnC"/>
                         <outlet property="joinClassbtn" destination="7mA-98-1yX" id="SBc-2f-dQk"/>
                         <outlet property="permissionbtn" destination="PAz-vy-weH" id="mqv-wk-zbD"/>
+                        <outlet property="tableView" destination="jv3-zc-Amq" id="a7O-Ke-mMB"/>
                         <segue destination="QcU-Lk-8kp" kind="show" identifier="show_class" id="Icb-xU-jFg"/>
                     </connections>
                 </viewController>
@@ -873,6 +863,10 @@
                         <outlet property="StudentInfo" destination="0Kc-FQ-WBK" id="fRi-8A-abr"/>
                         <outlet property="card" destination="FQ9-sY-KEP" id="zbg-Lx-ecL"/>
                         <outlet property="statusview" destination="nJy-9F-cYd" id="nD1-py-IRe"/>
+                        <outlet property="studentCountLB" destination="c8J-gF-Csr" id="fd0-m9-tFM"/>
+                        <outlet property="subjectIDLB" destination="v1s-lT-qTw" id="Vbx-FW-kX7"/>
+                        <outlet property="subjectNameLB" destination="yaK-9o-eNL" id="khc-VI-NRL"/>
+                        <outlet property="subjectTimeLB" destination="Pxf-ni-zVK" id="0vb-JY-ONy"/>
                         <outlet property="titleLable" destination="UmM-cX-Mo3" id="ftw-0h-4Qy"/>
                     </connections>
                 </viewController>

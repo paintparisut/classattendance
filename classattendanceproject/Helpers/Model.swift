@@ -29,3 +29,9 @@ struct ClassModel:Codable {
     var classactive:Bool?
 }
 
+struct ClassAttendanceModel:Codable {
+    var studentNumber:String?
+    var invite:String?
+    var docID:String?
+    var statusactive:Bool?
+}

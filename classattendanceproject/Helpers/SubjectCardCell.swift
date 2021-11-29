@@ -24,6 +24,7 @@ class SubjectCardCell: UITableViewCell {
     @IBOutlet weak var StudentCount: UILabel!
     
     func subject(id: String, name: String, time: String, stdcount: String, checkstat: String) {
+        print("id = \(id) , name \(name), time = \(time) studentcount = \(stdcount) check = \(checkstat)")
         SubjectID.text = id
         SubjectName.text = name
         SubjectTime.text = time
@@ -47,6 +48,7 @@ class SubjectCardCell: UITableViewCell {
         card.backgroundColor = UIColor.white
         
         //0 คือยังไม่เช็ค 1 คือเช็คช้า,ขาดเรียน 2 คือเช็คแล้ว
+        //ส่งboolมาเป็นstringแล้ว ตัวอย่าง "true" "false"
         
         if checkstat == "0" {
             let status = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 150))

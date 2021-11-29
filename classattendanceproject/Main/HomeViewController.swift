@@ -13,8 +13,8 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //    @IBOutlet weak var headerlable: UILabel!
     
     @IBOutlet weak var headerlable: UILabel!
-    private var classlist : [ClassModel]?
-    
+    private var classlist = [ClassModel]()
+    var allclass = [ClassModel]()
     var subjectname:[String] = ["Object Oriented Programming","Database Management System","Consumer Behavior","Active Citizens"]
     var subjectid:[String] = ["CSC261","CSC251","COS302","SWU261"]
     var subjecttime:[String] = ["9:00-11.30","9:00-11:30","9:00-11:30","9:00-11:30"]
@@ -23,12 +23,17 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     var teachername:[String] = ["Dr.A","Prof.Dr.A","Dr.B","Dr.B"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectname.count ?? 0
+//        return subjectname.count ?? 0
+        return classlist.count ?? 0
     }
+    
+    @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subjectcard", for: indexPath) as! SubjectCardCell
-        cell.subject(id: subjectid[indexPath.row], name: subjectname[indexPath.row], time: subjecttime[indexPath.row], stdcount: stdcount[indexPath.row], checkstat: checkstats[indexPath.row])
+//        cell.subject(id: subjectid[indexPath.row], name: subjectname[indexPath.row], time: subjecttime[indexPath.row], stdcount: stdcount[indexPath.row], checkstat: checkstats[indexPath.row])
+        cell.subject(id: classlist[indexPath.row].classID ?? "", name: classlist[indexPath.row].className ?? "", time: classlist[indexPath.row].classtime ?? "", stdcount: "\(classlist[indexPath.row].studentList?.count ?? 0)" ?? "", checkstat: "\(classlist[indexPath.row].classactive ?? false )" ?? "")
+//        print("cell = ",classlist[indexPath.row].classID)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ontap(gesture:)))
         cell.tag = indexPath.row
         cell.addGestureRecognizer(tapGesture)
@@ -38,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @objc func ontap(gesture:UITapGestureRecognizer) {
         if let cell = gesture.view {
             print(cell.tag)
-            performSegue(withIdentifier: "show_class", sender: "")
+            performSegue(withIdentifier: "show_class", sender: classlist[cell.tag])
             //ฟ้อนทำด้วย //ดันหน้าที่ถูกต้อง จะได้ไม่ซ้อน พุช
 //            let vc = self.storyboard?.instantiateViewController(identifier: "createclass") as? CreateClass
 //            self.navigationController?.pushViewController(vc!, animated: true)
@@ -58,6 +63,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBAction func joinClass(_ sender: Any) {
         let Join = self.storyboard?.instantiateViewController(identifier: "joinclass") as? JoinClass
+        Join?.allclassdata = allclass
         self.view.window?.rootViewController = Join
         
     }
@@ -65,8 +71,9 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @IBOutlet weak var joinClassbtn: UIButton!
     @IBOutlet weak var permissionbtn: UIButton!
     override func viewDidLoad() {
-        DatabaseManager.shared.getalldata()
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "SubjectClass", bundle: nil), forCellReuseIdentifier: "subjectcard")
+        getdata()
         headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
         permissionbtn.isHidden = true
@@ -81,8 +88,9 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         if segue.identifier == "show_class" {
             //ส่งค่า
             let subjectinfo = segue.destination as! SubjectInfo
-            
+            subjectinfo.classdetail = sender as! ClassModel
         }
+
     }
     
     @IBOutlet weak var addClassCustomBtn: UIButton!
@@ -106,8 +114,46 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
             joinClassbtn.isHidden = true
         default :
             permissionbtn.isHidden = true
+            
         }
     }
+    
+    func getdata() {
+        DatabaseManager.shared.getalldata(completion: { [weak self] (result) in
+            DispatchQueue.main.async { [weak self] in
+                switch result {
+                case .success(let classdata):
+//                    print("class = ",classdata)
+                    var classSelected = [ClassModel]()
+                    if DatabaseManager.shared.checkType() == "teacher" {
+                        classSelected = DatabaseManager.shared.selectedClassTeacher(number: DatabaseManager.shared.checkUserID(), classdata: classdata)
+                    }
+                    else if DatabaseManager.shared.checkType() == "student" {
+                        classSelected = DatabaseManager.shared.selectedClassStudent(number: DatabaseManager.shared.checkUserID(), classdata: classdata)
+                    }
+                    print("class = ",classSelected)
+                    self?.classlist = classSelected
+                    self?.allclass = classdata
+                    self?.setdata()
+                    self?.getalldata()
+                case .failure(let error):
+                    print("ERROR",error)
+                }
+            }
+        })
+    }
+    
+    func getalldata() {
+        //print("allclass = ",allclass)
+        for i in allclass {
+            print("studentlist = ", i.studentList)
+        }
+    }
+    func setdata () {
+        //print("setdata classlist = ",classlist)
+        tableView.reloadData()
+    }
+    
         
 }
     

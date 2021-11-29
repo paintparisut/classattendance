@@ -23,7 +23,6 @@ class InviteClass: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DatabaseManager.shared.updateDocID()
         showInviteCode.text = DatabaseManager.shared.checkInvite()
         HeaderLable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         TitleLable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 22)

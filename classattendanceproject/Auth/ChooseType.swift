@@ -22,18 +22,16 @@ class ChooseType: UIViewController {
     
     @IBAction func student(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "register") as! ViewController
-        vc.userType = "student"
-        let RegisterViewController = self.storyboard?.instantiateViewController(identifier: "register") as? ViewController
-        self.view.window?.rootViewController = RegisterViewController
+            vc.userType = "student"
+        self.view.window?.rootViewController = vc
         self.view.window?.makeKeyAndVisible()
     }
     
     
     @IBAction func teacher(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "register") as! ViewController
-        vc.userType = "teacher"
-        let RegisterViewController = self.storyboard?.instantiateViewController(identifier: "register") as? ViewController
-        self.view.window?.rootViewController = RegisterViewController
+               vc.userType = "teacher"
+        self.view.window?.rootViewController = vc
         self.view.window?.makeKeyAndVisible()
 
     }

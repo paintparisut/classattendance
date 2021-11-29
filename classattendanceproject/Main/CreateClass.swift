@@ -30,7 +30,7 @@ class CreateClass: UIViewController {
                 case .success(let classdata):
                     DatabaseManager.shared.saveInvite(type: classdata.inviteCode!)
                     print("classdata = ",classdata)
-                    
+                    DatabaseManager.shared.updateDocIDClass()
                     let vc = self?.storyboard?.instantiateViewController(identifier: "invitecode")
                     self?.view.window?.rootViewController = vc
                     

@@ -9,6 +9,12 @@ import UIKit
 
 class SubjectInfo: UIViewController {
 
+    @IBOutlet weak var subjectIDLB: UILabel!
+    @IBOutlet weak var subjectNameLB: UILabel!
+    @IBOutlet weak var subjectTimeLB: UILabel!
+    @IBOutlet weak var studentCountLB: UILabel!
+    
+    public var classdetail = ClassModel()
     @IBOutlet weak var ClassCheckBtn: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var HeaderLable: UILabel!
@@ -23,6 +29,8 @@ class SubjectInfo: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("detail = ",classdetail)
+        setdata()
         HeaderLable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         HeaderLable.textColor = UIColor.white
         titleLable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 22)
@@ -56,6 +64,14 @@ class SubjectInfo: UIViewController {
             ClassEditBtn.isHidden = true
             StudentInfo.isHidden = true
         }
+    }
+    
+    
+    private func setdata() {
+        subjectIDLB.text = classdetail.classID
+        subjectNameLB.text = classdetail.className
+        subjectTimeLB.text = classdetail.classtime
+        studentCountLB.text =  "\(classdetail.studentList?.count ?? 0)"
     }
 
     /*
