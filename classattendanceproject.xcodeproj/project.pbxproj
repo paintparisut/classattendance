@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D5EC394271FFF3D005F97BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5EC393271FFF3C005F97BC /* Constants.swift */; };
+		2D6E87032756941200025F01 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6E87022756941200025F01 /* StudentViewController.swift */; };
+		2D6E8705275695BE00025F01 /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6E8704275695BE00025F01 /* StudentCell.swift */; };
+		2D6E87072756988E00025F01 /* Student.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6E87062756988E00025F01 /* Student.xib */; };
 		2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8757CF2725CC5B008549BE /* CustomTextField.swift */; };
 		2D8E8C45274127FC00D0E159 /* SubjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */; };
 		2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8E8C482741315D00D0E159 /* CreateClass.swift */; };
@@ -83,6 +86,9 @@
 
 /* Begin PBXFileReference section */
 		2D5EC393271FFF3C005F97BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2D6E87022756941200025F01 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		2D6E8704275695BE00025F01 /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
+		2D6E87062756988E00025F01 /* Student.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Student.xib; sourceTree = "<group>"; };
 		2D8757CF2725CC5B008549BE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectInfo.swift; sourceTree = "<group>"; };
 		2D8E8C482741315D00D0E159 /* CreateClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClass.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
 				2D8E8C482741315D00D0E159 /* CreateClass.swift */,
 				CB33DDB5274C22D300CC7024 /* InviteClass.swift */,
+				2D6E87022756941200025F01 /* StudentViewController.swift */,
 				2DCFBCD72753D85200BD2E27 /* JoinClass.swift */,
 			);
 			path = Main;
@@ -195,9 +202,11 @@
 			children = (
 				CBB5729E271F4A9E00EF0E77 /* Model.swift */,
 				2D5EC393271FFF3C005F97BC /* Constants.swift */,
+				2D6E8704275695BE00025F01 /* StudentCell.swift */,
 				2DA1EBF92736707800700D8B /* SubjectCardCell.swift */,
 				2D8757CF2725CC5B008549BE /* CustomTextField.swift */,
 				CB03541B2754DF3300844D82 /* SubjectClass.xib */,
+				2D6E87062756988E00025F01 /* Student.xib */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -382,6 +391,7 @@
 				2DA1EBC52736101100700D8B /* Kanit-Regular.ttf in Resources */,
 				CB931B282718D51C0014FDE3 /* Main.storyboard in Resources */,
 				2DA1EBE32736101100700D8B /* Kanit-Thin.ttf in Resources */,
+				2D6E87072756988E00025F01 /* Student.xib in Resources */,
 				2DA1EBC22736101100700D8B /* Kanit-SemiBold.ttf in Resources */,
 				2DA1EBC82736101100700D8B /* Kanit-Light.ttf in Resources */,
 			);
@@ -432,11 +442,13 @@
 				2D948FC52731E139001EB8A0 /* EnterSite.swift in Sources */,
 				CB184F672721DE1C007FFF8D /* LoginPage.swift in Sources */,
 				CBC89165273DD0CD009BAB03 /* ProfileViewController.swift in Sources */,
+				2D6E87032756941200025F01 /* StudentViewController.swift in Sources */,
 				2D8E8C492741315D00D0E159 /* CreateClass.swift in Sources */,
 				2DCFBCD82753D85200BD2E27 /* JoinClass.swift in Sources */,
 				2DA1EBFA2736707800700D8B /* SubjectCardCell.swift in Sources */,
 				CB931B252718D51C0014FDE3 /* ViewController.swift in Sources */,
 				CB931B212718D51C0014FDE3 /* AppDelegate.swift in Sources */,
+				2D6E8705275695BE00025F01 /* StudentCell.swift in Sources */,
 				CB33DDB6274C22D300CC7024 /* InviteClass.swift in Sources */,
 				2D8757D02725CC5B008549BE /* CustomTextField.swift in Sources */,
 				CB82AB2F273012150066DD16 /* HomeViewController.swift in Sources */,

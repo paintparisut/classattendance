@@ -47,10 +47,8 @@ class SubjectCardCell: UITableViewCell {
         card.layer.shadowRadius = 5
         card.backgroundColor = UIColor.white
         
-        //0 คือยังไม่เช็ค 1 คือเช็คช้า,ขาดเรียน 2 คือเช็คแล้ว
-        //ส่งboolมาเป็นstringแล้ว ตัวอย่าง "true" "false"
         
-        if checkstat == "0" {
+        if checkstat == "true" {
             let status = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 150))
             status.backgroundColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)
             status.layer.cornerRadius = 13
@@ -62,8 +60,11 @@ class SubjectCardCell: UITableViewCell {
             checkview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
             check.addSubview(checkview)
             checkbtn.layer.zPosition = 1
+            checkbtn.text = "เช็คชื่อ"
+            studentClass.tintColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)
+
         }
-        else if checkstat == "1" {
+        else if checkstat == "false" {
             let status = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 150))
             status.backgroundColor = UIColor(cgColor: Constants.GraphicColors.COSCI_ERROR_COLOR)
             status.layer.cornerRadius = 13
@@ -75,7 +76,7 @@ class SubjectCardCell: UITableViewCell {
             checkview.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
             check.addSubview(checkview)
             checkbtn.layer.zPosition = 1
-            checkbtn.text = "เช็คชื่อล่าช้า"
+            checkbtn.text = "ยังไม่เปิดให้เช็คชื่อ"
             SubjectID.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_ERROR_COLOR)
             studentClass.tintColor = UIColor(cgColor: Constants.GraphicColors.COSCI_ERROR_COLOR)
         }

@@ -13,13 +13,13 @@ class SubjectInfo: UIViewController {
     @IBOutlet weak var subjectNameLB: UILabel!
     @IBOutlet weak var subjectTimeLB: UILabel!
     @IBOutlet weak var studentCountLB: UILabel!
-    
+    @IBOutlet weak var opencloseSwitch: UISwitch!
+
     public var classdetail = ClassModel()
     @IBOutlet weak var ClassCheckBtn: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var HeaderLable: UILabel!
     @IBOutlet weak var card: UIView!
-    @IBOutlet weak var ClassEditBtn: UIButton!
     @IBOutlet weak var StudentInfo: UIButton!
     @IBOutlet weak var statusview: UIView!
     @IBAction func back(_ sender: Any) {
@@ -41,14 +41,21 @@ class SubjectInfo: UIViewController {
         card.layer.masksToBounds = false
         card.layer.shadowRadius = 5
         card.backgroundColor = UIColor.white
-        ClassEditBtn.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         StudentInfo.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         ClassCheckBtn.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
-        ClassEditBtn.isHidden = true
         StudentInfo.isHidden = true
+        opencloseSwitch.isHidden = true
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         showBtnPermission()
+        setActiveBtn()
+    }
+    
+    private func setActiveBtn() {
+        if let active = classdetail.classactive {
+            opencloseSwitch.setOn(active, animated: true)
+        }
     }
     
     //เช็คtypeและซ่อนปุ่มaddclass
@@ -56,16 +63,25 @@ class SubjectInfo: UIViewController {
         let type = DatabaseManager.shared.checkType()
         switch type {
         case "teacher" :
-            ClassEditBtn.isHidden = false
             StudentInfo.isHidden = false
             ClassCheckBtn.isEnabled = false
             ClassCheckBtn.setTitle("ผู้ใช้นี้ไม่สามารถเช็คชื่อได้", for: .normal)
+            opencloseSwitch.isHidden = false
         default :
-            ClassEditBtn.isHidden = true
             StudentInfo.isHidden = true
+            opencloseSwitch.isHidden = true
         }
     }
     
+    @IBAction func openSwitch(_ sender: Any) {
+        if opencloseSwitch.isOn {
+            print("open")
+            DatabaseManager.shared.setActiveClassOpen(docID: classdetail.doccumentID ?? "")
+        } else {
+            print("close")
+            DatabaseManager.shared.setActiveClassClose(docID: classdetail.doccumentID ?? "")
+        }
+    }
     
     private func setdata() {
         subjectIDLB.text = classdetail.classID
@@ -74,6 +90,11 @@ class SubjectInfo: UIViewController {
         studentCountLB.text =  "\(classdetail.studentList?.count ?? 0)"
     }
 
+    @IBAction func studentInfo(_ sender: Any) {
+        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable")
+        self.view.window?.rootViewController = stdInfo
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

@@ -21,7 +21,7 @@ class DatabaseManager {
             guard let strongSelf = self else {return}
             if let error = error {
                 let authError = error as NSError
-                print("authError",authError) //รอเพิ่มalertเมื่อสร้างไม่ได้เช่นรหัสไม่ถึง6ตัว หรือ เมลซ้ำ เป็นต้น
+                print("authError",authError) 
                 completion(.failure(authError))
             }
             else {
@@ -386,6 +386,35 @@ class DatabaseManager {
 
         Ref.updateData([
             "studentList": FieldValue.arrayUnion([id]) ,
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    //setActiveClass true
+    func setActiveClassOpen(docID:String) {
+        let Ref = self.db.collection("class").document(docID)
+
+        Ref.updateData([
+            "class_Active": true
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+        //setActiveClass false
+    func setActiveClassClose(docID:String) {
+        let Ref = self.db.collection("class").document(docID)
+
+        Ref.updateData([
+            "class_Active": false
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")

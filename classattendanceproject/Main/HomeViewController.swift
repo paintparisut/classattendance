@@ -15,15 +15,9 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @IBOutlet weak var headerlable: UILabel!
     private var classlist = [ClassModel]()
     var allclass = [ClassModel]()
-    var subjectname:[String] = ["Object Oriented Programming","Database Management System","Consumer Behavior","Active Citizens"]
-    var subjectid:[String] = ["CSC261","CSC251","COS302","SWU261"]
-    var subjecttime:[String] = ["9:00-11.30","9:00-11:30","9:00-11:30","9:00-11:30"]
-    var stdcount:[String] = ["45","45","45","45"]
-    var checkstats:[String] = ["0","1","0","2"]
-    var teachername:[String] = ["Dr.A","Prof.Dr.A","Dr.B","Dr.B"]
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return subjectname.count ?? 0
         return classlist.count ?? 0
     }
     
@@ -90,7 +84,6 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
             let subjectinfo = segue.destination as! SubjectInfo
             subjectinfo.classdetail = sender as! ClassModel
         }
-
     }
     
     @IBOutlet weak var addClassCustomBtn: UIButton!
