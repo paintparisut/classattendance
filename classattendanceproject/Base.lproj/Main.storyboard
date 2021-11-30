@@ -748,7 +748,7 @@
                                             <color key="baseBackgroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="Login:" destination="gra-uD-GuY" eventType="touchUpInside" id="Tnr-CQ-6to"/>
+                                            <action selector="studentCheckIn:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="eB3-NM-Smu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kc-FQ-WBK">
@@ -760,6 +760,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="studentInfo:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="bzm-JF-HJm"/>
+                                            <segue destination="dh2-zc-P9w" kind="show" id="cAY-8A-jbW"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sY-KEP">
@@ -826,6 +827,17 @@
                                             <action selector="openSwitch:" destination="QcU-Lk-8kp" eventType="valueChanged" id="ifC-KL-Fxg"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-Ur-NgN">
+                                        <rect key="frame" x="42" y="350" width="330" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="ลบตลาส">
+                                            <color key="baseBackgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="deleteClass:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="g7Y-j3-KUN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -943,6 +955,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="back:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="bIt-IF-Dzw"/>
+                                            <action selector="back:" destination="dh2-zc-P9w" eventType="touchUpInside" id="ksX-3J-rnw"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljv-ni-SU4">
@@ -960,6 +973,7 @@
                         <viewLayoutGuide key="safeArea" id="PaO-Zb-l8M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ezp-fK-PCV"/>
                     <connections>
                         <outlet property="tableview" destination="RMq-9q-UeB" id="kPj-hi-8dG"/>
                     </connections>

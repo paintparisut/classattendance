@@ -9,13 +9,15 @@ import UIKit
 
 class SubjectInfo: UIViewController {
 
+    public var classdetail = ClassModel()
+    public var classAttendanceList = [ClassAttendanceModel]()
+    
     @IBOutlet weak var subjectIDLB: UILabel!
     @IBOutlet weak var subjectNameLB: UILabel!
     @IBOutlet weak var subjectTimeLB: UILabel!
     @IBOutlet weak var studentCountLB: UILabel!
     @IBOutlet weak var opencloseSwitch: UISwitch!
 
-    public var classdetail = ClassModel()
     @IBOutlet weak var ClassCheckBtn: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var HeaderLable: UILabel!
@@ -27,6 +29,7 @@ class SubjectInfo: UIViewController {
         self.view.window?.rootViewController = home
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("detail = ",classdetail)
@@ -45,11 +48,17 @@ class SubjectInfo: UIViewController {
         ClassCheckBtn.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         StudentInfo.isHidden = true
         opencloseSwitch.isHidden = true
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         showBtnPermission()
         setActiveBtn()
+        getAllClassAttendance()
+    }
+
+    
+    @IBAction func studentCheckIn(_ sender: Any) {
+        DatabaseManager.shared.CheckStundet(classData: classAttendanceList)
     }
     
     private func setActiveBtn() {
@@ -80,6 +89,7 @@ class SubjectInfo: UIViewController {
         } else {
             print("close")
             DatabaseManager.shared.setActiveClassClose(docID: classdetail.doccumentID ?? "")
+            DatabaseManager.shared.setFalseStundet(classData: classAttendanceList)
         }
     }
     
@@ -91,18 +101,48 @@ class SubjectInfo: UIViewController {
     }
 
     @IBAction func studentInfo(_ sender: Any) {
-        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable")
+        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable") as! StudentViewController
+        stdInfo.classAttendanceData = classAttendanceList
+        //stdInfo.classdata = classdetail
         self.view.window?.rootViewController = stdInfo
         self.navigationController?.popToRootViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func deleteClass(_ sender: Any) {
+        DatabaseManager.shared.deleteClass(classDocID: classdetail.doccumentID ?? "")
+        DatabaseManager.shared.deleteClassAttendance(classInvite: classdetail.inviteCode ?? "", classAttendanceData: classAttendanceList)
+        let home = self.storyboard?.instantiateViewController(identifier: "home")
+        self.view.window?.rootViewController = home
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    */
+    
+    
+    func getAllClassAttendance() {
+        DatabaseManager.shared.getallClassAttenDancedata(completion: { [weak self] (result) in
+            DispatchQueue.main.async { [weak self] in
+                switch result {
+                case .success(let classdata):
+//                    print("class = ",classdata)
+                    var classSelected = [ClassAttendanceModel]()
+                    if DatabaseManager.shared.checkType() == "teacher" {
+                        classSelected = DatabaseManager.shared.selectedClassAttendanceTeacher(inviteCode:self?.classdetail.inviteCode ?? "", classAttendance: classdata)
+                    }
+                    else if DatabaseManager.shared.checkType() == "student" {
+                        classSelected = DatabaseManager.shared.selectedClassAttendanceStudent(inviteCode: self?.classdetail.inviteCode ?? "", classAttendance: classdata)
+                    }
+                //    print("class = ",classSelected)
+                    self?.classAttendanceList = classSelected
+                    self?.setClassAttendancedata()
+                case .failure(let error):
+                    print("ERROR",error)
+                }
+            }
+        })
+    }
+    
+    func setClassAttendancedata() {
+        print("student in class = ",classAttendanceList)
+    }
+    
 
 }

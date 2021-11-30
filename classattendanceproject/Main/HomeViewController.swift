@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "SubjectClass", bundle: nil), forCellReuseIdentifier: "subjectcard")
-        getdata()
+        getClassData()
         headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
         permissionbtn.isHidden = true
@@ -111,7 +111,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         }
     }
     
-    func getdata() {
+    func getClassData() {
         DatabaseManager.shared.getalldata(completion: { [weak self] (result) in
             DispatchQueue.main.async { [weak self] in
                 switch result {
@@ -124,7 +124,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
                     else if DatabaseManager.shared.checkType() == "student" {
                         classSelected = DatabaseManager.shared.selectedClassStudent(number: DatabaseManager.shared.checkUserID(), classdata: classdata)
                     }
-                    print("class = ",classSelected)
+                //    print("class = ",classSelected)
                     self?.classlist = classSelected
                     self?.allclass = classdata
                     self?.setdata()
@@ -137,10 +137,10 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     }
     
     func getalldata() {
-        //print("allclass = ",allclass)
-        for i in allclass {
-            print("studentlist = ", i.studentList)
-        }
+//        print("allclass = ",allclass)
+//        for i in allclass {
+//            print("studentlist = ", i.studentList)
+//        }
     }
     func setdata () {
         //print("setdata classlist = ",classlist)

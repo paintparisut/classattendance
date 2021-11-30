@@ -271,16 +271,6 @@ class DatabaseManager {
                             return
                         }
                         let dataDescription = document.data()
-//                        response.doccumentID = dataDescription?["doc_ID"] as! String
-//                        response.inviteCode = dataDescription?["invite_Code"] as! String
-//                        response.classID = dataDescription?["class_ID"] as! String
-//                        response.className = dataDescription?["class_name"] as! String
-//                        response.classLecName = dataDescription?["class_LecName"] as! String
-//                        response.classLecID = dataDescription?["class_LecID"] as! String
-//                        response.studentList = dataDescription?["studentList"] as! [String]
-//                        response.classtime = dataDescription?["class_time"] as! String
-//                        response.classdate = dataDescription?["class_date"] as! String
-//                        response.classactive = dataDescription?["class_Active"] as! Bool
                         response.append(ClassModel(doccumentID: dataDescription?["doc_ID"] as! String, inviteCode: dataDescription!["invite_Code"] as! String, classID: dataDescription!["class_ID"] as! String, className: dataDescription!["class_name"] as! String, classLecID:dataDescription!["class_LecID"] as! String ,classLecName:dataDescription!["class_LecName"] as! String ,studentList:dataDescription!["studentList"] as? [String] ,classtime:dataDescription!["class_time"] as! String ,classdate:dataDescription!["class_date"] as! String ,classactive:dataDescription!["class_Active"] as! Bool))
                         completion(.success(response))
                     }
@@ -423,4 +413,109 @@ class DatabaseManager {
             }
         }
     }
+    
+    //getClassAttenDanceData
+    func getallClassAttenDancedata(completion:@escaping(Result<[ClassAttendanceModel],Error>) -> Void) {
+        var response = [ClassAttendanceModel]()
+        db.collection("classAttendance").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(.failure(err))
+            } else {
+                for document in querySnapshot!.documents {
+                    var docRef = self.db.collection("classAttendance").document(document.documentID)
+                    docRef.getDocument { (document, error) in
+                        guard let document = document, document.exists else {
+                            print("Document does not exist")
+                            return
+                        }
+                        let dataDescription = document.data()
+                        response.append(ClassAttendanceModel(studentNumber: dataDescription!["studentNumber"] as! String, invite: dataDescription!["invite_code"] as! String, docID: dataDescription?["doc_ID"] as! String, statusactive: dataDescription!["status_Active"] as! Bool))
+                        completion(.success(response))
+                    }
+                }
+            }
+        }
+    }
+    
+    //selectedClassAttendance Teacher
+    func selectedClassAttendanceTeacher(inviteCode:String,classAttendance:[ClassAttendanceModel]) -> [ClassAttendanceModel] {
+        var ClassSelected = [ClassAttendanceModel]()
+        for i in classAttendance {
+            if i.invite == inviteCode {
+                ClassSelected.append(i)
+            }
+        }
+        return ClassSelected
+    }
+    
+    //selectedClassAttendance Student
+    func selectedClassAttendanceStudent(inviteCode:String,classAttendance:[ClassAttendanceModel]) -> [ClassAttendanceModel] {
+        var ClassSelected = [ClassAttendanceModel]()
+        for i in classAttendance {
+            if i.invite == inviteCode && i.studentNumber == checkUserID() {
+                ClassSelected.append(i)
+            }
+        }
+        return ClassSelected
+    }
+    
+    //StudentCheckClass
+    func CheckStundet(classData:[ClassAttendanceModel]) {
+        for i in classData {
+            let Ref = self.db.collection("classAttendance").document(i.docID ?? "")
+            Ref.updateData([
+                "status_Active": true
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
+    }
+    //setFalseStudentWhenCloseClass
+    func setFalseStundet(classData:[ClassAttendanceModel]) {
+        for i in classData {
+            let Ref = self.db.collection("classAttendance").document(i.docID ?? "")
+            Ref.updateData([
+                "status_Active": false
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
+    }
+    
+    //deleteClass
+    func deleteClass(classDocID:String) {
+        db.collection("class").document(classDocID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    //deleteClassAttendanceData
+    func deleteClassAttendance(classInvite:String,classAttendanceData:[ClassAttendanceModel]) {
+        for i in classAttendanceData {
+            if i.invite == classInvite {
+                db.collection("class").document(i.docID ?? "").delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
+                }
+            }
+        }
+    }
+    
+
 }
