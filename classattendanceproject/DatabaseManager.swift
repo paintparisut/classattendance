@@ -355,6 +355,19 @@ class DatabaseManager {
             if invite == i.inviteCode {
                 check = true
             }
+            else {
+                check = false
+            }
+        }
+        for i in classdata {
+            for k in i.studentList! {
+                if checkType() == k {
+                    check = true
+                }
+                else {
+                    check = false
+                }
+            }
         }
         return check
     }

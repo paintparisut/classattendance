@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class JoinClass: UIViewController {
 
     var allclassdata = [ClassModel]()
@@ -34,8 +33,8 @@ class JoinClass: UIViewController {
     //Join Class
     @IBAction func Join(_ sender: Any) {
         guard DatabaseManager.shared.checkJoinClass(invite: tfTextCustom.text!, classdata: allclassdata) else {
-            //ทำalert แจ้งบอกว่าใส่inviteโค้ดผิด
-            print("invalid invitecode")
+            //ทำalert แจ้งบอกว่าใส่inviteโค้ดผิดหรือดเข้าคลาสนี้อยู่แล้ว
+            print("invalid invitecode or Joined")
             return
         }
         createClassAttendance()
