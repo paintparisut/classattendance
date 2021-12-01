@@ -172,10 +172,10 @@
 			children = (
 				CB82AB2E273012150066DD16 /* HomeViewController.swift */,
 				2D8E8C44274127FB00D0E159 /* SubjectInfo.swift */,
+				2D6E87022756941200025F01 /* StudentViewController.swift */,
 				CBC89164273DD0CC009BAB03 /* ProfileViewController.swift */,
 				2D8E8C482741315D00D0E159 /* CreateClass.swift */,
 				CB33DDB5274C22D300CC7024 /* InviteClass.swift */,
-				2D6E87022756941200025F01 /* StudentViewController.swift */,
 				2DCFBCD72753D85200BD2E27 /* JoinClass.swift */,
 			);
 			path = Main;

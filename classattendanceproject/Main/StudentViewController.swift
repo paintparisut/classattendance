@@ -27,10 +27,10 @@ class StudentViewController: UIViewController,UITableViewDataSource,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
        // print("classdata",classdata)
+        print("page=",self.navigationController?.viewControllers.count)
         setdata()
         tableview.register(UINib(nibName: "Student", bundle: nil), forCellReuseIdentifier: "student")
         tableview.rowHeight = 100
-        print("test",classAttendanceData)
         // Do any additional setup after loading the view.
     }
     
@@ -38,8 +38,8 @@ class StudentViewController: UIViewController,UITableViewDataSource,UITableViewD
     @IBAction func back(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: "stdInfo") as! SubjectInfo
         //vc.classdetail = classdata
-        self.view.window?.rootViewController = vc
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.viewControllers.remove(at:2)
+//        self.navigationController?.popToRootViewController(animated: false)
     }
     
     func setdata() {

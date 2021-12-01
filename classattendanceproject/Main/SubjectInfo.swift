@@ -34,6 +34,7 @@ class SubjectInfo: UIViewController {
         super.viewDidLoad()
         print("detail = ",classdetail)
         setdata()
+        print("page=",self.navigationController?.viewControllers.count)
         HeaderLable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         HeaderLable.textColor = UIColor.white
         titleLable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 22)
@@ -101,11 +102,19 @@ class SubjectInfo: UIViewController {
     }
 
     @IBAction func studentInfo(_ sender: Any) {
-        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable") as! StudentViewController
-        stdInfo.classAttendanceData = classAttendanceList
+//        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable") as! StudentViewController
+//        stdInfo.classAttendanceData = classAttendanceList
         //stdInfo.classdata = classdetail
-        self.view.window?.rootViewController = stdInfo
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.view.window?.rootViewController = stdInfo
+        
+//        let Profile = self.storyboard?.instantiateViewController(identifier: "stdtable") as? StudentViewController
+//        self.view.window?.rootViewController = Profile
+//        self.navigationController?.pushViewController(Profile, animated: false)
+//        self.view.window?.makeKeyAndVisible()
+        let vc = self.storyboard?.instantiateViewController(identifier: "stdtable") as? StudentViewController
+        vc?.classAttendanceData = classAttendanceList
+        self.navigationController?.pushViewController(vc!, animated: true)
+
     }
 
     @IBAction func deleteClass(_ sender: Any) {
@@ -142,7 +151,28 @@ class SubjectInfo: UIViewController {
     
     func setClassAttendancedata() {
         print("student in class = ",classAttendanceList)
+        print("student = \(classAttendanceList.count) checked = \(getDataStudentinClassCheck(classdata: classAttendanceList)) absent = \(getDataStudentinClassAbsent(classdata: classAttendanceList)) ")
     }
     
+    func getDataStudentinClassCheck(classdata:[ClassAttendanceModel]) -> Int {
+        var count = 0
+        for i in classdata {
+            if i.statusactive == true {
+                count += 1
+            }
+        }
+        return count
+    }
 
+    func getDataStudentinClassAbsent(classdata:[ClassAttendanceModel]) -> Int {
+        var count = 0
+        for i in classdata {
+            if i.statusactive == false {
+                count += 1
+            }
+        }
+        return count
+    }
+ 
 }
+

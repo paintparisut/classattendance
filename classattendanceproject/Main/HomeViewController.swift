@@ -68,6 +68,8 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
         tableView.register(UINib(nibName: "SubjectClass", bundle: nil), forCellReuseIdentifier: "subjectcard")
         getClassData()
+        print("checkid = ", DatabaseManager.shared.checkUserID())
+        print("checktype = ", DatabaseManager.shared.checkType())
         headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
         permissionbtn.isHidden = true

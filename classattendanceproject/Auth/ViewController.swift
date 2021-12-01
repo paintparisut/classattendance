@@ -21,15 +21,20 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
-                    DatabaseManager.shared.saveType(type: user.usertype!)
                     print("USER",user)
                 case .failure(let error):
                     print("ERROR",error) //.localizedDescription
                 }
             }
         }
+        savedata(type: userType, id: tfstudentnum.text ?? "")
         let home = self.storyboard?.instantiateViewController(identifier: "home")
         self.view.window?.rootViewController = home
+    }
+    
+    func savedata(type:String,id:String) {
+        DatabaseManager.shared.saveUserID(type: id)
+        DatabaseManager.shared.saveType(type: type)
     }
     
     override func viewDidLoad() {
