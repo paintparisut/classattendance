@@ -532,4 +532,5 @@ class DatabaseManager {
             }
         }
     }
+    
 }

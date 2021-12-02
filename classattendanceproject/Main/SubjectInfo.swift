@@ -85,7 +85,7 @@ class SubjectInfo: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        showBtnPermission()
+        setdata()
         setActiveBtn()
         getAllClassAttendance()
         setClassAttendancedata()
@@ -110,35 +110,23 @@ class SubjectInfo: UIViewController {
     //เช็คtypeและซ่อนปุ่มaddclass
     fileprivate func showBtnPermission() {
         let type = DatabaseManager.shared.checkType()
-//        switch type {
-//        case "teacher" :
-//            TeacherViewPermission.isHidden = false
-//            ClassCheckBtn.isEnabled = false
-//            ClassCheckBtn.setTitle("ผู้ใช้นี้ไม่สามารถเช็คชื่อได้", for: .normal)
-//            opencloseSwitch.isHidden = false
-//        default :
-//            TeacherViewPermission.isHidden = true
-//            opencloseSwitch.isHidden = true
-//        }
+
         if type == "teacher" {
             TeacherViewPermission.isHidden = false
             ClassCheckBtn.isEnabled = false
             ClassCheckBtn.setTitle("ผู้ใช้นี้ไม่สามารถเช็คชื่อได้", for: .normal)
             opencloseSwitch.isHidden = false
         }
-        else {
+        else if type == "student" {
             TeacherViewPermission.isHidden = true
             opencloseSwitch.isHidden = true
+            
             for i in classAttendanceList {
-                if i.statusactive == true {
+                if i.statusactive! == true {
                     ClassCheckBtn.isEnabled = false
                     ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
                 }
             }
-//            if classAttendanceList[0].statusactive ?? false {
-//                ClassCheckBtn.isEnabled = false
-//                ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
-//            }
         }
     }
     
@@ -159,7 +147,7 @@ class SubjectInfo: UIViewController {
         subjectTimeLB.text = classdetail.classtime
         studentCountLB.text =  "\(classdetail.studentList?.count ?? 0)"
         allStdCount.text = "\(classdetail.studentList?.count ?? 0)"
-
+        //showBtnPermission()
     }
 
     @IBAction func studentInfo(_ sender: Any) {
@@ -194,6 +182,7 @@ class SubjectInfo: UIViewController {
                 //    print("class = ",classSelected)
                     self?.classAttendanceList = classSelected
                     self?.setClassAttendancedata()
+                    self?.showBtnPermission()
                 case .failure(let error):
                     print("ERROR",error)
                 }
@@ -235,15 +224,7 @@ class SubjectInfo: UIViewController {
         }
         return count
     }
-    
-//    func closeBtnCheck() {
-//        if DatabaseManager.shared.checkType() == "student" {
-//            if classAttendanceList[0].statusactive ?? false {
-//                ClassCheckBtn.isEnabled = false
-//                ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
-//            }
-//        }
-//    }
+
     
     @IBOutlet weak var TeacherViewPermission: UIView!
     @IBOutlet weak var DeleteClassOutlet: UIButton!
