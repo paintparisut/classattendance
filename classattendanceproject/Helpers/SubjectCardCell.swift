@@ -47,7 +47,6 @@ class SubjectCardCell: UITableViewCell {
         card.layer.shadowRadius = 5
         card.backgroundColor = UIColor.white
         
-        
         if checkstat == "true" {
             let status = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 150))
             status.backgroundColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)

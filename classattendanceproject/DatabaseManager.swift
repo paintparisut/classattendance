@@ -289,6 +289,7 @@ class DatabaseManager {
         }
         return(obj)
     }
+    
     //selectedClass Student
     func selectedClassStudent(number:String,classdata:[ClassModel]) -> [ClassModel] {
         var obj = [ClassModel]()
@@ -351,14 +352,22 @@ class DatabaseManager {
     //checkStudentJoinClass
     func checkJoinClass(invite:String,classdata:[ClassModel]) -> Bool {
         var check = false
+        var classselect = ClassModel()
         for i in classdata {
             if invite == i.inviteCode {
                 check = true
+                print("found")
+                classselect = i
             }
         }
-        for i in classdata {
-            for k in i.studentList! {
+        
+        if classselect.studentList != nil {
+            print("class=",classselect.studentList)
+            for k in classselect.studentList! {
                 if checkUserID() == k {
+                    print("user=",checkUserID())
+                    print("k=",k)
+                    print("id found")
                     check = false
                 }
             }
@@ -523,6 +532,4 @@ class DatabaseManager {
             }
         }
     }
-    
-
 }

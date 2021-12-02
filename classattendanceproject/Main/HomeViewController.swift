@@ -9,13 +9,13 @@ import UIKit
 import Firebase
 import CloudKit
 
-class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDelegate  {
+class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
 //    @IBOutlet weak var headerlable: UILabel!
     
     @IBOutlet weak var headerlable: UILabel!
+    @IBOutlet weak var titlelable: UILabel!
     private var classlist = [ClassModel]()
     var allclass = [ClassModel]()
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return classlist.count ?? 0
@@ -25,9 +25,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subjectcard", for: indexPath) as! SubjectCardCell
-//        cell.subject(id: subjectid[indexPath.row], name: subjectname[indexPath.row], time: subjecttime[indexPath.row], stdcount: stdcount[indexPath.row], checkstat: checkstats[indexPath.row])
         cell.subject(id: classlist[indexPath.row].classID ?? "", name: classlist[indexPath.row].className ?? "", time: classlist[indexPath.row].classtime ?? "", stdcount: "\(classlist[indexPath.row].studentList?.count ?? 0)" ?? "", checkstat: "\(classlist[indexPath.row].classactive ?? false )" ?? "")
-//        print("cell = ",classlist[indexPath.row].classID)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ontap(gesture:)))
         cell.tag = indexPath.row
         cell.addGestureRecognizer(tapGesture)
@@ -37,7 +35,14 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
     @objc func ontap(gesture:UITapGestureRecognizer) {
         if let cell = gesture.view {
             print(cell.tag)
-            performSegue(withIdentifier: "show_class", sender: classlist[cell.tag])
+            let type = DatabaseManager.shared.checkType()
+            if type == "student" {
+                if classlist[cell.tag].classactive == true {
+                    performSegue(withIdentifier: "show_class", sender: classlist[cell.tag])
+                }
+            } else {
+                performSegue(withIdentifier: "show_class", sender: classlist[cell.tag])
+            }
             //ฟ้อนทำด้วย //ดันหน้าที่ถูกต้อง จะได้ไม่ซ้อน พุช
 //            let vc = self.storyboard?.instantiateViewController(identifier: "createclass") as? CreateClass
 //            self.navigationController?.pushViewController(vc!, animated: true)
@@ -71,6 +76,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         print("checkid = ", DatabaseManager.shared.checkUserID())
         print("checktype = ", DatabaseManager.shared.checkType())
         headerlable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
+        titlelable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         headerlable.textColor = UIColor.white
         permissionbtn.isHidden = true
         addClassCustomBtn.layer.shadowColor = UIColor.gray.cgColor
@@ -78,6 +84,7 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         addClassCustomBtn.layer.shadowOpacity = 0.8
         addClassCustomBtn.layer.masksToBounds = false
         addClassCustomBtn.layer.shadowRadius = 5
+        titlelable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 22)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -148,7 +155,6 @@ class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDel
         //print("setdata classlist = ",classlist)
         tableView.reloadData()
     }
-    
         
 }
     

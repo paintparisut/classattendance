@@ -31,24 +31,10 @@ class LoginPage: UIViewController {
     
     
     @IBAction func onTapLogin(_ sender: Any) {
-
         let email = email.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = password.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-//        // Signing in the user
-//        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-//            if error != nil {
-//                print("Login Fail")
-//            }
-//            else {
-//                print("Login Success!")
-//                let homeViewController = self.storyboard?.instantiateViewController(identifier: "home")
-//                self.view.window?.rootViewController = homeViewController
-//                self.view.window?.makeKeyAndVisible()
-//            }
-//        }
         DatabaseManager.shared.login(email: email, password: password) { [weak self] (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let user):
                     DatabaseManager.shared.saveType(type: user.usertype!)
@@ -58,12 +44,18 @@ class LoginPage: UIViewController {
                     self?.view.window?.rootViewController = homeViewController
                     self?.view.window?.makeKeyAndVisible()
                 case .failure(let error):
-                    print("ERROR",error) //.localizedDescription
+                    let alert = UIAlertController(title: "Error", message: "Email หรือ ชื่อผู้ใช้ผิด", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                    self?.EmailOutlet.text! = ""
+                    self?.PasswordOutlet.text! = ""
                 }
             }
         }
-
     }
+    
+    @IBOutlet weak var EmailOutlet: CustomTextField!
+    @IBOutlet weak var PasswordOutlet: CustomTextField!
     
     @IBAction func registerBtn(_ sender: Any) {
         let registerController = self.storyboard?.instantiateViewController(identifier: "choosetype") as? ChooseType

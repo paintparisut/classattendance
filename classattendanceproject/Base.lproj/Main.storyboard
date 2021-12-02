@@ -399,7 +399,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="ออกจากระบบ">
-                                            <color key="baseBackgroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseBackgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="logoutbtn:" destination="aZ2-49-Ulu" eventType="touchUpInside" id="uQ0-ak-BvU"/>
@@ -540,6 +540,8 @@
                         <color key="backgroundColor" red="0.13725490196078433" green="0.33333333333333331" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="EmailOutlet" destination="47z-wn-h7v" id="Wch-aK-Bgg"/>
+                        <outlet property="PasswordOutlet" destination="G3B-nC-2f2" id="DhK-Ix-wns"/>
                         <outlet property="email" destination="47z-wn-h7v" id="EsN-0n-YGD"/>
                         <outlet property="emailtextlable" destination="q00-lX-QbH" id="KZf-UE-aWM"/>
                         <outlet property="lable" destination="jUD-BP-lgU" id="aBo-Ab-0HF"/>
@@ -567,7 +569,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="174" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jv3-zc-Amq">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="726"/>
+                                        <rect key="frame" x="0.0" y="67" width="414" height="738"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
@@ -649,23 +651,13 @@
                                             <outlet property="delegate" destination="7Yu-kw-eMI" id="2Uo-8s-asl"/>
                                         </connections>
                                     </tableView>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="ชื่อวิชา" translatesAutoresizingMaskIntoConstraints="NO" id="3EH-A0-2gh">
-                                        <rect key="frame" x="30" y="15" width="324" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vre-IC-d6a">
-                                        <rect key="frame" x="351" y="23" width="37" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชั้นเรียนทั้งหมด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-b2-CT1">
+                                        <rect key="frame" x="42" y="28" width="341" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="">
-                                            <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
-                                            <color key="baseForegroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="profileButton:" destination="7Yu-kw-eMI" eventType="touchUpInside" id="WP3-lk-txo"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAz-vy-weH">
                                         <rect key="frame" x="301" y="681" width="79" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -686,6 +678,18 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="joinClass:" destination="7Yu-kw-eMI" eventType="touchUpInside" id="Vtu-Ob-Hpv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vre-IC-d6a">
+                                        <rect key="frame" x="342" y="27" width="37" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <imageReference key="image" image="person.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="profileButton:" destination="7Yu-kw-eMI" eventType="touchUpInside" id="WP3-lk-txo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -721,12 +725,13 @@
                         <outlet property="joinClassbtn" destination="7mA-98-1yX" id="SBc-2f-dQk"/>
                         <outlet property="permissionbtn" destination="PAz-vy-weH" id="mqv-wk-zbD"/>
                         <outlet property="tableView" destination="jv3-zc-Amq" id="a7O-Ke-mMB"/>
+                        <outlet property="titlelable" destination="eIS-b2-CT1" id="pUj-kA-LuG"/>
                         <segue destination="QcU-Lk-8kp" kind="show" identifier="show_class" id="Icb-xU-jFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c1-Ba-ZmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="-342"/>
+            <point key="canvasLocation" x="2302.898550724638" y="-342.1875"/>
         </scene>
         <!--Subject Info-->
         <scene sceneID="JWA-kY-Hg2">
@@ -751,17 +756,6 @@
                                             <action selector="studentCheckIn:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="eB3-NM-Smu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kc-FQ-WBK">
-                                        <rect key="frame" x="42" y="281" width="330" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="ข้อมูลนักเรียนในชั้นเรียน">
-                                            <color key="baseBackgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="studentInfo:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="bzm-JF-HJm"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ9-sY-KEP">
                                         <rect key="frame" x="29" y="93" width="356" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -774,7 +768,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxf-ni-zVK">
-                                                <rect key="frame" x="253" y="23" width="85" height="21"/>
+                                                <rect key="frame" x="271" y="23" width="85" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -799,7 +793,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="81Y-o0-e8m">
-                                                <rect key="frame" x="229" y="22.5" width="19" height="21"/>
+                                                <rect key="frame" x="247" y="22.5" width="19" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
@@ -826,17 +820,112 @@
                                             <action selector="openSwitch:" destination="QcU-Lk-8kp" eventType="valueChanged" id="ifC-KL-Fxg"/>
                                         </connections>
                                     </switch>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-Ur-NgN">
-                                        <rect key="frame" x="42" y="350" width="330" height="48"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-UM-GqZ">
+                                        <rect key="frame" x="29" y="262" width="354" height="399"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="ลบตลาส">
-                                            <color key="baseBackgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="deleteClass:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="g7Y-j3-KUN"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kc-FQ-WBK">
+                                                <rect key="frame" x="13" y="108" width="330" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="ข้อมูลนักเรียนในชั้นเรียน">
+                                                    <color key="baseBackgroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="studentInfo:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="bzm-JF-HJm"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="รหัสเข้าชั้นเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b4-hv-UNT">
+                                                <rect key="frame" x="13" y="8" width="286" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-Ur-NgN">
+                                                <rect key="frame" x="12" y="167" width="330" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="ลบคลาส">
+                                                    <color key="baseBackgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="deleteClass:" destination="QcU-Lk-8kp" eventType="touchUpInside" id="g7Y-j3-KUN"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vg-za-1e6">
+                                                <rect key="frame" x="0.0" y="239" width="354" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leh-6H-D8O">
+                                                        <rect key="frame" x="163" y="63" width="18" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8s-wq-HSn">
+                                                        <rect key="frame" x="163" y="97" width="18" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="นักเรียนทั้งหมด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKj-F5-OyU">
+                                                        <rect key="frame" x="163" y="31" width="148" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เข้าเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Wl-iz-uES">
+                                                        <rect key="frame" x="191" y="61" width="112" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ขาดเรียน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYN-Tn-cVb">
+                                                        <rect key="frame" x="191" y="95" width="112" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-Ko-7rr">
+                                                        <rect key="frame" x="296" y="31" width="33" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAI-Bv-NZE">
+                                                        <rect key="frame" x="296" y="62" width="33" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGK-iW-zGq">
+                                                        <rect key="frame" x="296" y="95" width="33" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.4039215686" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53y-xa-5xU" customClass="PieChartView" customModule="classattendanceproject" customModuleProvider="target">
+                                                        <rect key="frame" x="22" y="21" width="100" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZS3-ds-CqK">
+                                                <rect key="frame" x="12" y="39" width="331" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -867,10 +956,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="Yg1-6O-Lx7"/>
                     <connections>
+                        <outlet property="ChartPie" destination="53y-xa-5xU" id="WA7-Ws-2zI"/>
                         <outlet property="ClassCheckBtn" destination="cyG-Nm-x56" id="jBV-wA-zp3"/>
+                        <outlet property="DeleteClassOutlet" destination="4N2-Ur-NgN" id="MAF-i7-WUe"/>
                         <outlet property="HeaderLable" destination="7hK-DB-tzG" id="2A7-MQ-DGp"/>
+                        <outlet property="InviteCodeTf" destination="ZS3-ds-CqK" id="ocn-Hl-YTv"/>
+                        <outlet property="InviteTitleLB" destination="4b4-hv-UNT" id="dWc-5x-BcN"/>
                         <outlet property="StudentInfo" destination="0Kc-FQ-WBK" id="fRi-8A-abr"/>
+                        <outlet property="TeacherViewPermission" destination="NfL-UM-GqZ" id="bk0-DA-6KG"/>
+                        <outlet property="allStdAbsent" destination="MYN-Tn-cVb" id="AjM-hP-rXB"/>
+                        <outlet property="allStdAbsentCount" destination="xGK-iW-zGq" id="K7P-tn-MNF"/>
+                        <outlet property="allStdCount" destination="Ekc-Ko-7rr" id="UaR-1g-9hq"/>
+                        <outlet property="allStdLable" destination="PKj-F5-OyU" id="Miw-e6-5NO"/>
+                        <outlet property="allStdPresent" destination="2Wl-iz-uES" id="PaM-jU-hai"/>
+                        <outlet property="allStdPresentCount" destination="SAI-Bv-NZE" id="GBB-BK-60d"/>
                         <outlet property="card" destination="FQ9-sY-KEP" id="zbg-Lx-ecL"/>
+                        <outlet property="cardStd" destination="6vg-za-1e6" id="5vB-WX-KGv"/>
                         <outlet property="opencloseSwitch" destination="ZMj-sc-m8b" id="fq4-BC-90W"/>
                         <outlet property="statusview" destination="nJy-9F-cYd" id="nD1-py-IRe"/>
                         <outlet property="studentCountLB" destination="c8J-gF-Csr" id="fd0-m9-tFM"/>
@@ -900,20 +1001,20 @@
                                         <rect key="frame" x="0.0" y="94" width="414" height="919"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RMq-9q-UeB">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RMq-9q-UeB">
                                                 <rect key="frame" x="0.0" y="33" width="414" height="777"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="student" rowHeight="103" id="CJ5-2P-sm9">
-                                                        <rect key="frame" x="0.0" y="44.5" width="414" height="103"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="student" rowHeight="93" id="CJ5-2P-sm9">
+                                                        <rect key="frame" x="0.0" y="44.5" width="414" height="93"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CJ5-2P-sm9" id="jdH-x9-XZy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLi-Yu-Bh0">
-                                                                    <rect key="frame" x="29" y="19" width="356" height="65"/>
+                                                                    <rect key="frame" x="29" y="13" width="356" height="65"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Po-EO-WqB">
@@ -974,12 +1075,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="ezp-fK-PCV"/>
                     <connections>
+                        <outlet property="HeaderTitle" destination="Ljv-ni-SU4" id="ytL-e4-oJP"/>
                         <outlet property="tableview" destination="RMq-9q-UeB" id="kPj-hi-8dG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1R-4P-TF1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3832" y="-342"/>
+            <point key="canvasLocation" x="3831.884057971015" y="-342.1875"/>
         </scene>
         <!--Create Class-->
         <scene sceneID="SFH-fL-Ana">
@@ -1054,7 +1156,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asd-LE-WEJ">
-                                                <rect key="frame" x="42" y="696" width="330" height="48"/>
+                                                <rect key="frame" x="42" y="469" width="330" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="เพิ่มคลาส">
@@ -1122,7 +1224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDX-l7-JEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3070" y="355"/>
+            <point key="canvasLocation" x="3069.5652173913045" y="354.91071428571428"/>
         </scene>
         <!--Join Class-->
         <scene sceneID="8Le-XZ-TCG">
@@ -1258,36 +1360,9 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="Join:" destination="KEQ-Yf-1NS" eventType="touchUpInside" id="GOe-Ij-PNj"/>
+                                            <action selector="Submit:" destination="IwU-L1-4qg" eventType="touchUpInside" id="sKH-1e-6gS"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qap-F2-PPT" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
-                                        <rect key="frame" x="49" y="533" width="335" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z5W-DT-kjC" customClass="CustomTextField" customModule="classattendanceproject" customModuleProvider="target">
-                                        <rect key="frame" x="49" y="457" width="335" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.13725490200000001" green="0.33333333329999998" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="รหัสวิชา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pur-j8-0FG">
-                                        <rect key="frame" x="49" y="435" width="257" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อวิชา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzZ-Vs-D96">
-                                        <rect key="frame" x="49" y="511" width="257" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -1320,10 +1395,6 @@
                         <outlet property="CreateBackHome" destination="mpv-fv-d4H" id="af4-RL-PPG"/>
                         <outlet property="HeaderLable" destination="Eht-ob-hl2" id="3Pg-uL-KLt"/>
                         <outlet property="InviteTextLable" destination="L8R-V8-kyc" id="tGn-1d-jZI"/>
-                        <outlet property="SubID" destination="Z5W-DT-kjC" id="aBI-I9-ndr"/>
-                        <outlet property="SubName" destination="Qap-F2-PPT" id="wYM-QD-vqk"/>
-                        <outlet property="SubjectIDLable" destination="pur-j8-0FG" id="i1P-AD-0th"/>
-                        <outlet property="SubjectNameLable" destination="gzZ-Vs-D96" id="XGm-8c-t23"/>
                         <outlet property="TitleLable" destination="Z9I-3O-tz0" id="5uD-Gk-PUg"/>
                         <outlet property="showInviteCode" destination="m5R-ke-aa2" id="aiN-DT-TLf"/>
                     </connections>
@@ -1384,6 +1455,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -12,32 +12,43 @@ class SubjectInfo: UIViewController {
     public var classdetail = ClassModel()
     public var classAttendanceList = [ClassAttendanceModel]()
     
+    
+    @IBOutlet weak var cardStd: UIView!
+    @IBOutlet weak var ChartPie: PieChartView!
     @IBOutlet weak var subjectIDLB: UILabel!
     @IBOutlet weak var subjectNameLB: UILabel!
     @IBOutlet weak var subjectTimeLB: UILabel!
     @IBOutlet weak var studentCountLB: UILabel!
     @IBOutlet weak var opencloseSwitch: UISwitch!
-
+    @IBOutlet weak var allStdLable: UILabel!
+    @IBOutlet weak var allStdPresent: UILabel!
+    @IBOutlet weak var allStdAbsent: UILabel!
+    @IBOutlet weak var allStdCount: UILabel!
+    @IBOutlet weak var allStdPresentCount: UILabel!
+    @IBOutlet weak var allStdAbsentCount: UILabel!
     @IBOutlet weak var ClassCheckBtn: UIButton!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var HeaderLable: UILabel!
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var StudentInfo: UIButton!
     @IBOutlet weak var statusview: UIView!
+    
     @IBAction func back(_ sender: Any) {
         let home = self.storyboard?.instantiateViewController(identifier: "home")
         self.view.window?.rootViewController = home
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    @IBOutlet weak var InviteTitleLB: UILabel!
+    @IBOutlet weak var InviteCodeTf: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("detail = ",classdetail)
         setdata()
-        print("page=",self.navigationController?.viewControllers.count)
         HeaderLable.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         HeaderLable.textColor = UIColor.white
         titleLable.font = UIFont(name: Constants.ConstantFont.BOLD, size: 22)
+        InviteTitleLB.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         card.layer.cornerRadius = 15
         card.layer.shadowColor = UIColor.gray.cgColor
         card.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -47,19 +58,46 @@ class SubjectInfo: UIViewController {
         card.backgroundColor = UIColor.white
         StudentInfo.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         ClassCheckBtn.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
-        StudentInfo.isHidden = true
+        TeacherViewPermission.isHidden = true
+        allStdLable.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        allStdPresent.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        allStdAbsent.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        allStdCount.font = UIFont(name: Constants.ConstantFont.Medium, size: 16)
+        allStdPresentCount.font = UIFont(name: Constants.ConstantFont.Medium, size: 16)
+        allStdAbsentCount.font = UIFont(name: Constants.ConstantFont.Medium, size: 16)
+        cardStd.layer.cornerRadius = 15
+        subjectIDLB.font = UIFont(name: Constants.ConstantFont.Medium, size: 28)
+        subjectNameLB.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
+        subjectNameLB.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_GRAY_COLOR)
+        subjectTimeLB.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_GRAY_COLOR)
+        subjectTimeLB.font = UIFont(name: Constants.ConstantFont.Medium, size: 16)
+        studentCountLB.font = UIFont(name: Constants.ConstantFont.Medium, size: 16)
+        studentCountLB.textColor = UIColor(cgColor: Constants.GraphicColors.COSCI_GRAY_COLOR)
+        InviteCodeTf.text = classdetail.inviteCode
+        InviteCodeTf.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
         opencloseSwitch.isHidden = true
+        let status = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 150))
+        status.backgroundColor = UIColor(cgColor: Constants.GraphicColors.COSCI_BLUEPMR_COLOR)
+        status.layer.cornerRadius = 13
+        status.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        statusview.addSubview(status)
+        showBtnPermission()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showBtnPermission()
         setActiveBtn()
         getAllClassAttendance()
+        setClassAttendancedata()
+        
+//        closeBtnCheck()
     }
 
     
     @IBAction func studentCheckIn(_ sender: Any) {
         DatabaseManager.shared.CheckStundet(classData: classAttendanceList)
+        getAllClassAttendance()
+        showBtnPermission()
     }
     
     private func setActiveBtn() {
@@ -67,19 +105,40 @@ class SubjectInfo: UIViewController {
             opencloseSwitch.setOn(active, animated: true)
         }
     }
+
     
     //เช็คtypeและซ่อนปุ่มaddclass
     fileprivate func showBtnPermission() {
         let type = DatabaseManager.shared.checkType()
-        switch type {
-        case "teacher" :
-            StudentInfo.isHidden = false
+//        switch type {
+//        case "teacher" :
+//            TeacherViewPermission.isHidden = false
+//            ClassCheckBtn.isEnabled = false
+//            ClassCheckBtn.setTitle("ผู้ใช้นี้ไม่สามารถเช็คชื่อได้", for: .normal)
+//            opencloseSwitch.isHidden = false
+//        default :
+//            TeacherViewPermission.isHidden = true
+//            opencloseSwitch.isHidden = true
+//        }
+        if type == "teacher" {
+            TeacherViewPermission.isHidden = false
             ClassCheckBtn.isEnabled = false
             ClassCheckBtn.setTitle("ผู้ใช้นี้ไม่สามารถเช็คชื่อได้", for: .normal)
             opencloseSwitch.isHidden = false
-        default :
-            StudentInfo.isHidden = true
+        }
+        else {
+            TeacherViewPermission.isHidden = true
             opencloseSwitch.isHidden = true
+            for i in classAttendanceList {
+                if i.statusactive == true {
+                    ClassCheckBtn.isEnabled = false
+                    ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
+                }
+            }
+//            if classAttendanceList[0].statusactive ?? false {
+//                ClassCheckBtn.isEnabled = false
+//                ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
+//            }
         }
     }
     
@@ -99,18 +158,11 @@ class SubjectInfo: UIViewController {
         subjectNameLB.text = classdetail.className
         subjectTimeLB.text = classdetail.classtime
         studentCountLB.text =  "\(classdetail.studentList?.count ?? 0)"
+        allStdCount.text = "\(classdetail.studentList?.count ?? 0)"
+
     }
 
     @IBAction func studentInfo(_ sender: Any) {
-//        let stdInfo = self.storyboard?.instantiateViewController(identifier: "stdtable") as! StudentViewController
-//        stdInfo.classAttendanceData = classAttendanceList
-        //stdInfo.classdata = classdetail
-//        self.view.window?.rootViewController = stdInfo
-        
-//        let Profile = self.storyboard?.instantiateViewController(identifier: "stdtable") as? StudentViewController
-//        self.view.window?.rootViewController = Profile
-//        self.navigationController?.pushViewController(Profile, animated: false)
-//        self.view.window?.makeKeyAndVisible()
         let vc = self.storyboard?.instantiateViewController(identifier: "stdtable") as? StudentViewController
         vc?.classAttendanceData = classAttendanceList
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -152,7 +204,17 @@ class SubjectInfo: UIViewController {
     func setClassAttendancedata() {
         print("student in class = ",classAttendanceList)
         print("student = \(classAttendanceList.count) checked = \(getDataStudentinClassCheck(classdata: classAttendanceList)) absent = \(getDataStudentinClassAbsent(classdata: classAttendanceList)) ")
+        
+        self.ChartPie.addAnimation = true
+        self.ChartPie.animationDuration = 1.0
+        self.ChartPie.sperator = 3
+        self.ChartPie.drawChart([PieChartItem (UIColor(cgColor:Constants.GraphicColors.COSCI_BLUEPMR_COLOR), CGFloat(getDataStudentinClassCheck(classdata: classAttendanceList))),
+                                 PieChartItem (UIColor(cgColor:Constants.GraphicColors.COSCI_ERROR_COLOR),CGFloat(getDataStudentinClassAbsent(classdata: classAttendanceList)))])
+        allStdPresentCount.text = "\(getDataStudentinClassCheck(classdata: classAttendanceList))"
+        allStdAbsentCount.text = "\(getDataStudentinClassAbsent(classdata: classAttendanceList))"
+
     }
+    
     
     func getDataStudentinClassCheck(classdata:[ClassAttendanceModel]) -> Int {
         var count = 0
@@ -173,6 +235,17 @@ class SubjectInfo: UIViewController {
         }
         return count
     }
- 
+    
+//    func closeBtnCheck() {
+//        if DatabaseManager.shared.checkType() == "student" {
+//            if classAttendanceList[0].statusactive ?? false {
+//                ClassCheckBtn.isEnabled = false
+//                ClassCheckBtn.setTitle("เช็คชื่อเรียบร้อย", for: .normal)
+//            }
+//        }
+//    }
+    
+    @IBOutlet weak var TeacherViewPermission: UIView!
+    @IBOutlet weak var DeleteClassOutlet: UIButton!
 }
 

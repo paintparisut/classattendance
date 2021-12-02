@@ -15,21 +15,63 @@ class ViewController: UIViewController {
     @IBOutlet weak var tfconfirmpass: UITextField!
     @IBOutlet weak var tfstudentnum: UITextField!
     
+    func CheckGuard() -> Bool {
+        if tffullname.text == "" || tfstudentnum.text == "" {
+            return false
+        }
+        return true
+    }
+    
     var userType:String = ""
     @IBAction func onTapRegister(_ sender: Any) {
+        guard  CheckGuard() else {
+            let alert = UIAlertController(title: "Error", message: "กรอกข้อมูลให้ครบถ้วน", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         DatabaseManager.shared.register(name: tffullname.text ?? "", email: tfemail.text ?? "", password: tfpassword.text ?? "", usernumber: tfstudentnum.text ?? "" ,type: userType){ [weak self] (result) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let user):
                     print("USER",user)
+                    let home = self?.storyboard?.instantiateViewController(identifier: "home")
+                    self?.view.window?.rootViewController = home
                 case .failure(let error):
                     print("ERROR",error) //.localizedDescription
+                    if self?.tfpassword.text?.count ?? 0 < 6 {
+                        let alert = UIAlertController(title: "Error", message: "Password ต้องมีมากกว่า 6 ตัว", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self?.present(alert, animated: true, completion: nil)
+                        self?.tfpassword.text! = ""
+                        self?.tfconfirmpass.text! = ""
+                    }
+                    if self?.tfpassword.text != self?.tfconfirmpass.text {
+                        let alert = UIAlertController(title: "Error", message: "รหัสผ่านไม่ตรงกัน", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self?.present(alert, animated: true, completion: nil)
+                        self?.tfpassword.text! = ""
+                        self?.tfconfirmpass.text! = ""
+                    }
+                    if ((self?.tfemail.text?.isEmpty) != nil) {
+                        let alert = UIAlertController(title: "Error", message: "รูปแบบ Email ไม่ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self?.present(alert, animated: true, completion: nil)
+                        self?.tfemail.text = ""
+                    }
+                    else if ((self?.validate(YourEMailAddress: self?.tfemail.text ?? "")) != nil) {
+                        print("2")
+                    }
                 }
             }
         }
         savedata(type: userType, id: tfstudentnum.text ?? "")
-        let home = self.storyboard?.instantiateViewController(identifier: "home")
-        self.view.window?.rootViewController = home
+    }
+    
+    func validate(YourEMailAddress: String) -> Bool {
+        let REGEX: String
+        REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", REGEX).evaluate(with: YourEMailAddress)
     }
     
     func savedata(type:String,id:String) {

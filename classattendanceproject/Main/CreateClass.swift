@@ -22,8 +22,25 @@ class CreateClass: UIViewController {
         self.view.window?.rootViewController = home
     }
     
+    func CheckGuard() -> Bool {
+        if classID.text == "" || classTime.text == "" || className.text == "" || classDate.text == "" || classLect.text == "" {
+            return false
+        }
+        return true
+    }
+        
+    @IBOutlet weak var PickerTime: UIPickerView!
+    @IBAction func Picker(_ sender: Any) {
+        
+    }
     
     @IBAction func addclass(_ sender: Any) {
+        guard  CheckGuard() else {
+            let alert = UIAlertController(title: "Error", message: "กรอกข้อมูลให้ครบถ้วน", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         DatabaseManager.shared.createClass(class_id: classID.text!, class_name: className.text!, class_lecName: classLect.text!, class_time: classTime.text!, class_date: classDate.text!) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -33,14 +50,16 @@ class CreateClass: UIViewController {
                     DatabaseManager.shared.updateDocIDClass()
                     let vc = self?.storyboard?.instantiateViewController(identifier: "invitecode")
                     self?.view.window?.rootViewController = vc
-                    
                 case .failure(let error):
                     print("ERROR",error) //.localizedDescription
-                    
+//                    if self?.classID.text == "" || self?.classTime.text == "" || self?.className.text == "" || self?.classDate.text == "" || self?.classLect.text == "" {
+//                        print("dfdfdfdf")
+                    }
                 }
             }
         }
-    }
+    
+    let datepicker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +69,28 @@ class CreateClass: UIViewController {
         classLect.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         className.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
         classTime.font = UIFont(name: Constants.ConstantFont.Regular, size: 16)
-        // Do any additional setup after loading the view.
+        
+        let time = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_gb")
+        formatter.dateFormat = "hh:mm"
+        classTime.text = formatter.string(from: time)
+        
+        let timepicker = UIDatePicker()
+        timepicker.datePickerMode = .time
+        timepicker.addTarget(self, action: #selector(timePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
+        timepicker.frame.size = CGSize(width: 0, height: 250)
+        classTime.inputView = timepicker
     }
+    
+    @objc func timePickerValueChange(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_gb")
+        formatter.dateFormat = "hh:mm"
+        classTime.text = formatter.string(from: sender.date)
+    }
+    
+    
     
 
     /*

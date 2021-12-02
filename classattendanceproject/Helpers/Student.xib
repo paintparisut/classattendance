@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-9N-QVm">
-                                <rect key="frame" x="-8" y="-8" width="25" height="81"/>
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                         </subviews>
@@ -37,9 +37,11 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="Card" destination="pXY-9U-ACh" id="dUd-BB-LAn"/>
+                <outlet property="statusView" destination="2A9-9N-QVm" id="vEi-cn-cQB"/>
                 <outlet property="stdName" destination="PLL-D5-wvu" id="g9L-E0-70L"/>
             </connections>
-            <point key="canvasLocation" x="125" y="105"/>
+            <point key="canvasLocation" x="124.6376811594203" y="104.79910714285714"/>
         </tableViewCell>
     </objects>
     <resources>

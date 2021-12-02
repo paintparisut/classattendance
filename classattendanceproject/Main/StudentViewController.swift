@@ -9,18 +9,18 @@ import UIKit
 
 class StudentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
+    @IBOutlet weak var HeaderTitle: UILabel!
     public var classAttendanceData = [ClassAttendanceModel]()
    // var classdata = ClassModel()
     
     @IBOutlet weak var tableview: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return classAttendanceData.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "student", for: indexPath) as! StudentCell
-        cell.student(name: classAttendanceData[indexPath.row].studentNumber ?? "")
+        cell.student(name: classAttendanceData[indexPath.row].studentNumber ?? "" , statusC: "\(classAttendanceData[indexPath.row].statusactive!)" ?? "")
         return cell
     }
 
@@ -30,7 +30,8 @@ class StudentViewController: UIViewController,UITableViewDataSource,UITableViewD
         print("page=",self.navigationController?.viewControllers.count)
         setdata()
         tableview.register(UINib(nibName: "Student", bundle: nil), forCellReuseIdentifier: "student")
-        tableview.rowHeight = 100
+        tableview.rowHeight = 90
+        HeaderTitle.font = UIFont(name: Constants.ConstantFont.Medium, size: 24)
         // Do any additional setup after loading the view.
     }
     
@@ -45,5 +46,4 @@ class StudentViewController: UIViewController,UITableViewDataSource,UITableViewD
     func setdata() {
         tableview.reloadData()
     }
-
 }
