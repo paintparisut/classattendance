@@ -96,8 +96,6 @@ class SubjectCardCell: UITableViewCell {
             studentClass.tintColor = UIColor(cgColor: Constants.GraphicColors.COSCI_SUCCESS_COLOR)
         }
     }
-    
-    
     @IBOutlet weak var ststusview: UIView!
     @IBOutlet weak var check: UIView!
     @IBOutlet weak var checkbtn: UILabel!

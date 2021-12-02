@@ -150,25 +150,10 @@ class DatabaseManager {
         }
     }
 
-    
+    //getdatauserprofile
     func getdata(data:String,get:UITextField) {
         let doc = Auth.auth().currentUser?.uid
         let docRef = db.collection("user").document(doc!)
-       /*
-        //Documents
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)") //ใช้test
-            }
-            else {
-                print("Document does not exist")
-            }
-        }
-        */
-        
-        //Data
-       // var showdata = String()
         docRef.getDocument { (document, error) in
             guard let document = document, document.exists else {
                 print("Document does not exist")
@@ -491,6 +476,7 @@ class DatabaseManager {
             }
         }
     }
+    
     //setFalseStudentWhenCloseClass
     func setFalseStundet(classData:[ClassAttendanceModel]) {
         for i in classData {
@@ -532,5 +518,4 @@ class DatabaseManager {
             }
         }
     }
-    
 }

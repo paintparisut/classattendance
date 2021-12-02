@@ -32,6 +32,7 @@ class SubjectInfo: UIViewController {
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var StudentInfo: UIButton!
     @IBOutlet weak var statusview: UIView!
+    @IBOutlet weak var DeleteBtn: UIButton!
     
     @IBAction func back(_ sender: Any) {
         let home = self.storyboard?.instantiateViewController(identifier: "home")
@@ -82,6 +83,7 @@ class SubjectInfo: UIViewController {
         status.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         statusview.addSubview(status)
         showBtnPermission()
+        DeleteClassOutlet.titleLabel?.font = UIFont(name: Constants.ConstantFont.Medium, size: 18)
     }
     
     override func viewDidAppear(_ animated: Bool) {
