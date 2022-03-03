@@ -10,7 +10,6 @@ import Firebase
 import CloudKit
 
 class HomeViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
-//    @IBOutlet weak var headerlable: UILabel!
     
     @IBOutlet weak var headerlable: UILabel!
     @IBOutlet weak var titlelable: UILabel!
